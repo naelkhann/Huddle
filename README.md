@@ -19,7 +19,7 @@ Huddle is built using a Ruby on Rails backend with React/Redux on the frontend. 
 
 ## Design Docs
 * [View Wireframes](https://github.com/naelkhann/Huddle/tree/master/docs)
-* [React Components](https://github.com/naelkhann/Huddle/blob/master/docs/component-heirarchy.md)
+* [React Components](https://github.com/naelkhann/Huddle/blob/master/docs/component-hierarchy.md)
 * [API Endpoints](https://github.com/naelkhann/Huddle/blob/master/docs/api-endpoints.md)
 * [Database Schema](https://github.com/naelkhann/Huddle/blob/master/docs/schema.md)
 * [Sample State](https://github.com/naelkhann/Huddle/blob/master/docs/sample-state.md)
