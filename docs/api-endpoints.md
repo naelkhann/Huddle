@@ -18,10 +18,13 @@
 - `POST /api/session`
 - `DELETE /api/session`
 
+### Categories
+
+- `GET /api/categories`
+
 ### Groups
 
 - `GET /api/groups`
-  - Groups index/search
 - `POST /api/groups`
 - `GET /api/groups/:id`
 - `PATCH /api/groups/:id`
@@ -30,7 +33,6 @@
 ### Huddles
 
 - `GET /api/huddles`
-  - ordered by date
 - `POST /api/groups/:groupId/huddles`
 - `GET /api/groups/:groupId/events/:id`
 - `DELETE /api/groups/:groupId/events/:id`
