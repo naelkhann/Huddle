@@ -1,7 +1,7 @@
 # Huddle
 ![alt text](https://github.com/naelkhann/Huddle/raw/master/public/huddle-logo.png "Huddle")
 
-[Heroku Link](www.heroku.com)
+[Heroku Link](https://huddle-application.herokuapp.com/)
 
 [Trello Link](https://trello.com/b/VXwYw2DP/huddle)
 
