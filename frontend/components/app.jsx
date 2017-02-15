@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const App = (props) => (
   <div>
@@ -13,8 +14,8 @@ const App = (props) => (
         </div>
 
         <div className="navbar-buttons-container">
-          <a className="navbar-button" href="#">Log in</a>
-          <a id="signup" className="navbar-button red-button" href="#">Sign up</a>
+          <Link to="/login" className="navbar-button">Log in</Link>
+          <Link to="/register" className="navbar-button red-button" id="signup">Sign up</Link>
         </div>
       </nav>
     </div>
