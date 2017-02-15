@@ -1,1 +1,8 @@
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = "<%= current_user.username %>"
+  <% end %>
+  window.logo = "<%= image_url("huddle-logo.png") %>"
+</script>
+
 <main id="root"></main>
