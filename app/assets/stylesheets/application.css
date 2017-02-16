@@ -12,5 +12,5 @@
  *
  *= require normalize-rails
  *= require_self
- *= require_tree .
+ *= require root
  */

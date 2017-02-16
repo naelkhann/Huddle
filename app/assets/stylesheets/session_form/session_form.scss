@@ -1,21 +1,112 @@
 @import 'variables';
+@import '../button';
+
+$session-padding: 20px;
+$session-form-margin-top: 10px;
+
+@mixin subheading ($bold){
+  font-family: $meetup-font;
+  font-size: 14px;
+  font-weight: $bold;
+}
+
+@mixin changing-subheader {
+  display: block;
+  @include subheading(500);
+  padding-bottom: $session-padding;
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+}
 
 .main-container {
   background-color: $meetup-gray;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 625px;
 }
 
 .session-form-container {
+  position: relative;
+  top: 80px;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 460px;
   border: 1px solid $gray-border;
+  border-bottom: 1px solid rgb(156, 156, 156);
+  border-radius: 3px;
 }
 
+.session-form-title-container {
+  padding-left: $session-padding;
+  padding-top: $session-padding;
+  border-bottom: 1px solid $gray-border;
+  .session-form-title{
+    display: block;
+    color: $meetup-red;
+    font-size: 43px;
+    padding-bottom: $session-padding;
+  }
+  .session-form-title-subheading {
+    @include changing-subheader;
+  }
+}
+
+
 .session-form {
+  padding-left: $session-padding;
+  padding-bottom: $session-padding;
   display: flex;
   flex-direction: column;
+  .session-form-label{
+    @include subheading(500);
+    margin-top: $session-form-margin-top;
+  }
+  .session-form-submit {
+    display: block;
+    width: 90px;
+    border-radius: 3px;
+    margin-top: $session-form-margin-top;
+    padding: 8px 16px;
+    font-family: $meetup-font;
+    background-color: $meetup-red;
+    color: white;
+    transition: background-color 0.2s ease;
+    &:hover{
+      background-color: $meetup-red-dark;
+    }
+  }
+  .session-form-title-subheading {
+    @include changing-subheader;
+    padding-top: $session-padding;
+    padding-bottom: 0;
+  }
+}
+
+.session-form-guest-container {
+  padding-left: $session-padding;
+  padding-bottom: $session-padding;
+  border-top: 1px solid $facebook-blue;
+  background-color: rgb(178, 191, 210);
+  .session-form-guest-or {
+    display: block;
+    position: relative;
+    bottom: 5px;
+    width: 30px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: $meetup-font;
+    border-radius: 3px;
+    background-color: white;
+  }
+  .session-form-guest-btn {
+    width: 95%;
+    padding: 8px 16px;
+    border-radius: 3px;
+    font-family: $meetup-font;
+    background-color: $facebook-blue;
+    text-align: center;
+    color: white;
+  }
 }

@@ -1,8 +1,9 @@
 @import 'variables';
+@import 'button';
 
 #signup {
-  margin-right: 20px;
   color: white;
+  margin-right: 20px;
 }
 
 .navbar-container {
@@ -31,19 +32,7 @@
       justify-content: flex-end;
       align-items: center;
       .navbar-button {
-        display: block;
-        box-sizing: border-box;
-        width: auto;
-        height: auto;
-        border-radius: 3px;
-        text-align: center;
-        text-decoration: none;
-        color: black;
-        font-size: 1.1em;
-        font-family: $meetup-font;
-        margin: 0 8px;
-        padding: 8px 16px;
-
+        @include meetup-button;
       }
     }
   }
