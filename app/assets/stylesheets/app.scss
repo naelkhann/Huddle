@@ -1,3 +1,5 @@
+@import 'variables';
+
 #signup {
   margin-right: 20px;
   color: white;
@@ -6,7 +8,7 @@
 .navbar-container {
   height: auto;
   position: relative;
-  border-bottom: 1px solid rgb(232, 232, 232);
+  border-bottom: 1px solid $gray-border;
   .navbar {
     height: 70px;
     display: flex;
@@ -17,7 +19,7 @@
       justify-content: center;
       align-items: center;
       .navbar-logo {
-        height: 65px;
+        height: 50px;
         width: auto;
         border-radius: 6px;
       }
@@ -37,7 +39,8 @@
         text-align: center;
         text-decoration: none;
         color: black;
-        font-family: 'nimbus-sans', sans-serif;
+        font-size: 1.1em;
+        font-family: $meetup-font;
         margin: 0 8px;
         padding: 8px 16px;
 
@@ -47,9 +50,9 @@
 }
 
 .red-button {
-  background-color: rgb(247, 0, 0);
+  background-color: $meetup-red;
   transition: filter 0.2s ease;
   &:hover{
-    background-color: rgb(194, 0, 0);
+    background-color: $meetup-red-dark;
   }
 }

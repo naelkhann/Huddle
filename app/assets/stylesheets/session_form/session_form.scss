@@ -1,0 +1,21 @@
+@import 'variables';
+
+.main-container {
+  background-color: $meetup-gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 625px;
+}
+
+.session-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border: 1px solid $gray-border;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+}
