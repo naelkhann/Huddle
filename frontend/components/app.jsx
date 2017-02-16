@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 const App = (props) => (
   <div>
+
     <div className="navbar-container">
       <nav className="navbar">
         <div className="navbar-buttons-container">
@@ -19,8 +20,11 @@ const App = (props) => (
         </div>
       </nav>
     </div>
-    <h3>Children Live Here</h3>
-    { props.children }
+
+    <div className="main-container">
+      { props.children }
+    </div>
+
   </div>
 );
 
