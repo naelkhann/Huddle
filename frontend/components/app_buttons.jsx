@@ -11,12 +11,22 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   logout: () => dispatch(logout())
 });
 
+const sessionLinks = () => (
+  <div className="navbar-buttons-container">
+    <Link to="/login" className="navbar-button">Log in</Link>
+    <Link to="/register" className="navbar-button red-button" id="signup">Sign up</Link>
+  </div>
+);
+
+const greetAndLogout = (currentUser, logoutFn) => (
+  <div className="navbar-buttons-container">
+    <h4 className="session-form-label">{currentUser.username}</h4>
+    <button className="navbar-button red-button" onClick={logoutFn}>Log Out</button>
+  </div>
+);
+
 const AppButtons = (props) => (
-    <div className="navbar-buttons-container">
-      <button className="navbar-button red-button" onClick={props.logout}>Log Out</button>
-      <Link to="/login" className="navbar-button">Log in</Link>
-      <Link to="/register" className="navbar-button red-button" id="signup">Sign up</Link>
-    </div>
+  props.currentUser ? greetAndLogout(props.currentUser, props.logout) : sessionLinks()
 );
 
 export default connect(
