@@ -31,43 +31,54 @@ class SessionForm extends React.Component {
   }
 
   linkBackToSignUp(formTypeLabel){
-    if (formTypeLabel === "Log In"){
+    if (formTypeLabel === "Log in"){
       return (
-        <h4>Not registered with us yet? <Link to="/register">Sign up</Link></h4>
+        <h4 className="session-form-title-subheading">Not registered with us yet? <Link to="/register">Sign up</Link></h4>
       );
     }
   }
 
   linkBackToLogIn(formTypeLabel){
-    if (formTypeLabel === "Sign Up"){
+    if (formTypeLabel === "Sign up"){
       return (
-        <h4>Already a member? <Link to="/login">Log In</Link></h4>
+        <h4 className="session-form-title-subheading">Already a member? <Link to="/login">Log In</Link></h4>
       );
     }
   }
 
   render(){
-    const formTypeLabel = this.props.formType === "login" ? "Log In" : "Sign Up";
+    const formTypeLabel = this.props.formType === "login" ? "Log in" : "Sign up";
     return (
       <div>
+
         <div className="session-form-container">
-          <h2>{formTypeLabel}</h2>
-          {this.linkBackToSignUp(formTypeLabel)}
+          <div className="session-form-title-container">
+            <h2 className="session-form-title">{formTypeLabel}</h2>
+            {this.linkBackToSignUp(formTypeLabel)}
+          </div>
+
           <form className="session-form" onSubmit={this.handleSubmit}>
-            <label>Username<br />
+            <label className="session-form-label">Username:<br />
               <input type="text"
                 value={this.state.username}
                 onChange={this.update("username")}/>
             </label>
-            <label>Password<br />
-              <input type="password"
+            <label className="session-form-label">Password:<br />
+              <input type="text"
                 value={this.state.password}
                 onChange={this.update("password")}/>
             </label>
-            <input type="submit" value={formTypeLabel} />
+            <input className="session-form-submit" type="submit" value={formTypeLabel} />
+            {this.linkBackToLogIn(formTypeLabel)}
           </form>
-          {this.linkBackToLogIn(formTypeLabel)}
+
+          <div className="session-form-guest-container">
+            <h4 className="session-form-guest-or">OR</h4>
+            <button className="session-form-guest-btn">Demo Log in for Guests</button>
+          </div>
+
         </div>
+
       </div>
     );
   }

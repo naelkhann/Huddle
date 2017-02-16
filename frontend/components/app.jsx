@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import AppButtons from './app_buttons';
 
 const App = (props) => (
   <div>
@@ -14,10 +15,7 @@ const App = (props) => (
           <img className="navbar-logo" src={window.logo} alt="Huddle" />
         </div>
 
-        <div className="navbar-buttons-container">
-          <Link to="/login" className="navbar-button">Log in</Link>
-          <Link to="/register" className="navbar-button red-button" id="signup">Sign up</Link>
-        </div>
+        <AppButtons />
       </nav>
     </div>
 
