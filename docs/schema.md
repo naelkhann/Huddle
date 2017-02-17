@@ -23,15 +23,14 @@ column name | data type | details
 id          | integer   | not null, primary key
 name        | string    | not null
 description | text      | not null
-category_id | integer   | not null, foreign key (references category)
-memebership_id | integer | foreign key (references membership)
 
-## memberships
+## groupcategories
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references user)
-group_id    | integer   | not null, foreign key (references group)
+group_id     | integer   | not null, foreign key (references group)
+category_id    | integer   | not null, foreign key (references category)
+
 
 ## huddles
 column name | data type | details
@@ -41,6 +40,13 @@ title       | integer   | not null
 group_id    | integer   | not null, foreign key (references group)
 description | text      | not null
 date        | datetime  | not null
+
+## memberships
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references user)
+group_id    | integer   | not null, foreign key (references group)
 
 ## rsvps
 column name | data type | details
