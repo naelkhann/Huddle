@@ -15,13 +15,13 @@ mega0319 = User.create(username: "mega0319", password: "password")
 guest = User.create(username: "Guest", password: "password")
 
 # Groups
-vegetarians = Group.create(name: "NYC Vegetarians", description: "Come together and meet with New York City Vegetarians for restaurant trips, cooking sessions, and more!")
+vegetarians = Group.create(name: "NYC Vegetarians", description: "Come together and meet with New York City Vegetarians for restaurant trips, cooking sessions, and more!", moderator_id: guest.id)
 
-overwatchers = Group.create(name: "Overwatchers", description: "All Overwatch players welcome! Learn strategies, make friends, and just have a good time")
+overwatchers = Group.create(name: "Overwatchers", description: "All Overwatch players welcome! Learn strategies, make friends, and just have a good time", moderator_id: guest.id)
 
-watchers = Group.create(name: "Movie Buffs", description: "Meet other movie buffs for viewings, discussions, and more!")
+watchers = Group.create(name: "Movie Buffs", description: "Meet other movie buffs for viewings, discussions, and more!", moderator_id: chim4ira312.id)
 
-fake_watchers = Group.create(name: "Movie Buffs", description: "We are fake movie buffs!")
+fake_watchers = Group.create(name: "Movie Buffs", description: "We are fake movie buffs!", moderator_id: guest.id)
 
 #Categories
 1 = Category.create(name: "Movements")
