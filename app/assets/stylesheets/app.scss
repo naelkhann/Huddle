@@ -53,9 +53,10 @@
 .footer-container {
   display: flex;
   background-color: black;
+  justify-content: center;
   .footer {
-    border: 1px solid white;
     height: 100%;
+    width: 900px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -65,7 +66,7 @@
     }
     .footer-links{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
     }
   }
 }
