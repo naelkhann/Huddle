@@ -20,7 +20,7 @@ class Api::GroupsController < ApplicationController
   end
 
   def index
-    @group = Group.all
+    @groups = Group.all
   end
 
   private
