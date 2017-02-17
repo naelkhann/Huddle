@@ -6,8 +6,13 @@ import * as SessionAPIUtil from './util/session_api_util';
 import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
-  const store = configureStore();
-  window.store = configureStore();
+  let store;
+  if (window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser } };
+    store = configureStore(preloadedState);
+  } else {
+    store = configureStore();
+  }
   window.logout = SessionAPIUtil.logout;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
