@@ -1,0 +1,66 @@
+@import 'variables';
+@import 'button';
+
+#signup {
+  color: white;
+  margin-right: 20px;
+}
+
+.navbar-container {
+  border-bottom: 1px solid $gray-border;
+  .navbar {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .navbar-logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .navbar-logo {
+        height: 50px;
+        width: auto;
+        border-radius: 6px;
+      }
+    }
+    .navbar-buttons-container {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      .navbar-button {
+        @include meetup-button;
+      }
+    }
+  }
+}
+
+.red-button {
+  background-color: $meetup-red;
+  transition: filter 0.2s ease;
+  &:hover{
+    background-color: $meetup-red-dark;
+  }
+}
+
+
+.footer-container {
+  display: flex;
+  background-color: black;
+  .footer {
+    border: 1px solid white;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: $meetup-font;
+    .footer-title{
+      font-size: 18px;
+    }
+    .footer-links{
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
