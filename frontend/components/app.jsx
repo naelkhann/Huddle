@@ -25,7 +25,7 @@ const App = (props) => (
 
     <div className="footer-container">
       <div className="footer">
-        <p className="footer-title">Made With Love By Nael Khan</p>
+        <p className="footer-title">Just another web application by Nael Khan</p>
         <div className="footer-links">
           <p>About Me</p>
           <p>LinkedIn</p>
