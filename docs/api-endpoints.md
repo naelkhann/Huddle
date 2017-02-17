@@ -12,6 +12,7 @@
 
 - `POST /api/users`
 - `PATCH /api/users`
+- `GET /api/user/:userId/huddles`
 
 ### Session
 
@@ -21,6 +22,7 @@
 ### Categories
 
 - `GET /api/categories`
+- `GET /api/categories/:id`
 
 ### Groups
 
@@ -28,12 +30,13 @@
 - `POST /api/groups`
 - `GET /api/groups/:id`
 - `PATCH /api/groups/:id`
-- `DELETE /api/groups/:id`
+- `DELETE /api/groups`
 
 ### Huddles
 
 - `GET /api/huddles`
-- `POST /api/groups/:groupId/huddles`
-- `GET /api/groups/:groupId/events/:id`
-- `DELETE /api/groups/:groupId/events/:id`
-- `PATCH /api/groups/:groupId/events/:id`
+- `POST /api/huddles`
+- `GET /api/groups/:groupId/huddles`
+- `GET /api/groups/:groupId/huddles/:id`
+- `DELETE /api/huddles`
+- `PATCH /api/huddles/:id`

@@ -25,7 +25,7 @@ name        | string    | not null
 description | text      | not null
 category_id | integer   | not null, foreign key (references category)
 
-## usersgroups
+## memberships
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -41,9 +41,19 @@ group_id    | integer   | not null, foreign key (references group)
 description | text      | not null
 date        | datetime  | not null
 
-## usershuddles
+## rsvps
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references user)
 huddle_id    | integer   | not null, foreign key (references huddle)
+
+## React Routes
+route       | component
+------------|----------
+/           | App
+/signup     | SessionForm
+/login      | SessionForm
+/user       | UserIndex > RSVPIndex
+/groups     | GroupIndex
+/categories | CategoryIndex
