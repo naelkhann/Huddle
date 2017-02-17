@@ -29,6 +29,11 @@
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
+      .navbar-profile-img {
+        height: 25px;
+        margin: 0 0 0 10px;
+        border-radius: 50%;
+      }
       .navbar-button {
         @include meetup-button;
       }

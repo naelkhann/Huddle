@@ -21,6 +21,7 @@ const sessionLinks = () => (
 const greetAndLogout = (currentUser, logoutFn) => (
   <div className="navbar-buttons-container">
     <h4 className="session-form-label">{currentUser.username}</h4>
+    <img className="navbar-profile-img" src={currentUser.image_url}/>
     <button className="navbar-button red-button" onClick={logoutFn}>Log Out</button>
   </div>
 );
