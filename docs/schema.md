@@ -24,6 +24,7 @@ id          | integer   | not null, primary key
 name        | string    | not null
 description | text      | not null
 category_id | integer   | not null, foreign key (references category)
+memebership_id | integer | foreign key (references membership)
 
 ## memberships
 column name | data type | details
