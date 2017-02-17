@@ -24,7 +24,7 @@ id          | integer   | not null, primary key
 name        | string    | not null
 description | text      | not null
 
-## groupcategories
+## group_categories
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -41,14 +41,14 @@ group_id    | integer   | not null, foreign key (references group)
 description | text      | not null
 date        | datetime  | not null
 
-## memberships
+## user_groups
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references user)
 group_id    | integer   | not null, foreign key (references group)
 
-## rsvps
+## user_huddles
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
