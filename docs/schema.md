@@ -8,8 +8,8 @@ username        | string    | not null, indexed, unique
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-first_name      | string    | not null
-last_name       | string    | not null
+name      | string    | not null
+
 
 ##categories
 column name | data type | details
@@ -37,7 +37,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | integer   | not null
-group_id    | integer   | not null, foreign key (references group)
+group_id    | integer   | not null, foreign key (references group), only has one
 description | text      | not null
 date        | datetime  | not null
 
