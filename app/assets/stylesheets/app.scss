@@ -48,25 +48,3 @@
     background-color: $meetup-red-dark;
   }
 }
-
-
-.footer-container {
-  display: flex;
-  background-color: black;
-  justify-content: center;
-  .footer {
-    height: 100%;
-    width: 900px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    font-family: $meetup-font;
-    .footer-title{
-      font-size: 18px;
-    }
-    .footer-links{
-      display: flex;
-      flex-direction: column;
-    }
-  }
-}
