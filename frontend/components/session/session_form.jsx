@@ -50,8 +50,8 @@ class SessionForm extends React.Component {
   render(){
     const formTypeLabel = this.props.formType === "login" ? "Log in" : "Sign up";
     return (
-      <div>
-
+      <div className="main-container-session">
+        
         <div className="session-form-container">
           <div className="session-form-title-container">
             <h2 className="session-form-title">{formTypeLabel}</h2>

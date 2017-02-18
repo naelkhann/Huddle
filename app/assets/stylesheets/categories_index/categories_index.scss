@@ -1,0 +1,34 @@
+@import "../variables";
+
+$top-margin: 25px 0 0 0;
+$uniform-width: 70%;
+
+.main-container-categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-container {
+  width: $uniform-width;
+  margin: $top-margin;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.categories-heading {
+  display: block;
+  width: $uniform-width;
+  margin: $top-margin;
+  font-family: $meetup-font;
+  text-align: center;
+}
+
+.categories-images {
+  display: block;
+  width: 225px;
+  height: 100px;
+  border: 1px solid $meetup-red-dark;
+}

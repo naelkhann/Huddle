@@ -20,11 +20,10 @@ $session-form-margin-top: 10px;
   }
 }
 
-.main-container {
+.main-container-session {
   background-color: $meetup-gray;
   display: flex;
   justify-content: center;
-  height: 690px;
 }
 
 .session-form-container {

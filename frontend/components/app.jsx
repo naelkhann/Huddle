@@ -19,9 +19,8 @@ const App = (props) => (
       </nav>
     </div>
 
-    <div className="main-container">
-      { props.children }
-    </div>
+    { props.children }
+
 
   </div>
 );
