@@ -34,6 +34,6 @@ photo_cat = Category.create(name: "Photography")
 food_cat = Category.create(name: "Food & Drink")
 
 #categories_groups
-veg_food = CategoryGroup.create(group_id: vegetarians.id, category_id: food_cat.id)
-watchers_fam = CategoryGroup.create(group_id: watchers.id, category_id: fam_cat.id)
-veg_health = CategoryGroup.create(group_id: vegetarians.id, category_id: health_cat.id)
+veg_food = CategoriesGroup.create(group_id: vegetarians.id, category_id: food_cat.id)
+watchers_fam = CategoriesGroup.create(group_id: watchers.id, category_id: fam_cat.id)
+veg_health = CategoriesGroup.create(group_id: vegetarians.id, category_id: health_cat.id)
