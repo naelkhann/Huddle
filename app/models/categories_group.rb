@@ -1,0 +1,2 @@
+class CategoriesGroup < ApplicationRecord
+end
