@@ -8,6 +8,7 @@
 
 .navbar-container {
   border-bottom: 1px solid $gray-border;
+  background-color: white;
   .navbar {
     height: 10%;
     display: flex;
@@ -42,9 +43,5 @@
 }
 
 .red-button {
-  background-color: $meetup-red;
-  transition: filter 0.2s ease;
-  &:hover{
-    background-color: $meetup-red-dark;
-  }
+  @include red-button;
 }
