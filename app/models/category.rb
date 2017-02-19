@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 CATEGORIES = ["Movements", "Outdoors & Adventure", "Tech", "Family",
   "Health & Wellness", "Sports & Fitness", "Learning", "Photography",
   "Food & Drink", "Writing", "Language & Culture", "Music", "LGBTQ",

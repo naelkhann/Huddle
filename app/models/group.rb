@@ -15,4 +15,9 @@ class Group < ApplicationRecord
 
   has_many :categories_groups
   has_many :categories, through: :categories_groups
+
+  belongs_to :moderator,
+    class_name: "User",
+    foreign_key: :moderator_id,
+    primary_key: :id
 end
