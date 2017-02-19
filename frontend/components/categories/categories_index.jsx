@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
+import { Link } from 'react-router';
 import { getCategories, getCategory } from '../../actions/categories_actions';
 import { arrayOfCategories } from '../../reducers/selectors';
 
@@ -25,10 +26,23 @@ class CategoriesIndex extends React.Component {
       </div>
     ));
     return (
-      <div className="main-container-categories">
-        <h1 className="categories-heading">Explore</h1>
-        <div className="categories-container">
-        {categoriesNames}
+      <div>
+        <div className="categories-video-cover">
+          <h1>Find others who love what you love.</h1>
+          <Link to="/register" className="categories-video-cover-btn">Sign Up</Link>
+        </div>
+        <div className="categories-video-container">
+          <video autoPlay loop muted width="100%">
+            <source src="https://s3.amazonaws.com/huddle-application-dev/static_video/video.mp4"
+              type="video/mp4" />
+            Your browser does not support the video embedded here
+          </video>
+        </div>
+        <div className="main-container-categories">
+          <h1 className="categories-heading">Explore</h1>
+          <div className="categories-container">
+          {categoriesNames}
+          </div>
         </div>
       </div>
     );
