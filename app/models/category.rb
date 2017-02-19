@@ -8,5 +8,6 @@ CATEGORIES = ["Movements", "Outdoors & Adventure", "Tech", "Family",
 class Category < ApplicationRecord
   validates :name, presence: true, uniqueness: true, inclusion: {in: CATEGORIES}
 
-  #has_many groups through group_categories
+  has_many :categories_groups
+  has_many :groups, through: :categories_groups
 end

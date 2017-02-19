@@ -13,6 +13,6 @@ class Group < ApplicationRecord
   validates :name, :description, presence: true
   validates :name, uniqueness: true
 
-  # has_many :user_groups
-  # has_many :group_categories
+  has_many :categories_groups
+  has_many :categories, through: :categories_groups
 end
