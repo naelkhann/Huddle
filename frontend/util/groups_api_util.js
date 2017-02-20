@@ -20,9 +20,9 @@ export const createGroup = group => {
   });
 };
 
-export const deleteGroup = id => {
+export const deleteGroup = group => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/groups/${id}`
+    url: `api/groups/${group.id}`
   });
 };

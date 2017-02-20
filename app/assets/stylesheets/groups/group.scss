@@ -1,0 +1,44 @@
+@import "../variables";
+
+.group-header {
+  width: 70%;
+  margin: 10px auto;
+  border: 1px solid #bbb;
+  border-radius: 7px;
+}
+
+.group-header-name-container {
+  width: 100%;
+  height: 100px;
+  background-color: $meetup-red;
+  border-bottom: 8px solid $meetup-red-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .group-header-name {
+    color: white;
+    font-size: 40px;
+    font-weight: normal;
+  }
+}
+
+.group-header-nav {
+  ul {
+    list-style-type: none;
+    display: flex;
+    li {
+      display: block;
+      padding: 10px;
+      a {
+        text-decoration: none;
+        color: #aaa;
+        padding: 7px 10px;
+      }
+      a:hover {
+        background-color: $meetup-red;
+        border-radius: 4px;
+        color: white;
+      }
+    }
+  }
+}

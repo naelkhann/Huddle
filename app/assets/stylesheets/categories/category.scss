@@ -19,9 +19,9 @@
 .category-groups-container{
   width: 70%;
   margin: 0 auto;
-  border: 1px solid black;
-  padding: 20px;
+  box-sizing: border-box;
+  padding: 20px 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
