@@ -41,7 +41,9 @@ class Category extends React.Component {
             <h1>{category.name}</h1>
           </div>
         </div>
-        {this.renderGroups()}
+        <div className="category-groups-container">
+          {this.renderGroups()}
+        </div>
       </div>
     );
   }

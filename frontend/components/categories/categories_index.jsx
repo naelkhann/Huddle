@@ -18,7 +18,6 @@ class CategoriesIndex extends React.Component {
   }
 
   render(){
-    debugger
     const categoriesNames = this.props.categories.map((cat, idx) => (
       <div key={idx} className="category-container">
         <div className="categories-images"></div>
