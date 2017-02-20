@@ -9,8 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getCategories: () => dispatch(getCategories()),
-  getCategory: (id) => dispatch(getCategory(id))
+  getCategories: () => dispatch(getCategories())
 });
 
 class CategoriesIndex extends React.Component {
@@ -19,10 +18,15 @@ class CategoriesIndex extends React.Component {
   }
 
   render(){
+    debugger
     const categoriesNames = this.props.categories.map((cat, idx) => (
       <div key={idx} className="category-container">
         <div className="categories-images"></div>
-        <h3 className="categories-names">{cat.name}</h3>
+        <h3 className="categories-names">
+          <Link to={`/categories/${cat.id}`} className="categories-link">
+            {cat.name}
+          </Link>
+        </h3>
       </div>
     ));
     return (
@@ -32,7 +36,7 @@ class CategoriesIndex extends React.Component {
           <Link to="/register" className="categories-video-cover-btn">Sign Up</Link>
         </div>
         <div className="categories-video-container">
-          <video autoPlay loop muted width="100%">
+          <video autoPlay muted width="100%">
             <source src="https://s3.amazonaws.com/huddle-application-dev/static_video/video.mp4"
               type="video/mp4" />
             Your browser does not support the video embedded here

@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import CategoriesIndex from './categories/categories_index';
+import Category from './categories/category';
 import SessionFormContainer from './session/session_form_container';
 import UserIndex from './user/user_index';
 
@@ -30,6 +31,7 @@ const Root = ({store}) => {
       <Router history={hashHistory}>
         <Route path="/" component={ App }>
           <IndexRoute component={ CategoriesIndex } />
+          <Route path="categories/:categoryId" component={ Category } />
           <Route path="/login" component={ SessionFormContainer } />
           <Route path="/register" component={ SessionFormContainer } />
           <Route path="/user" component={ UserIndex } onEnter={_redirectIfLoggedIn} />
