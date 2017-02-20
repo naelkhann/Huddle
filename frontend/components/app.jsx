@@ -12,7 +12,7 @@ const App = (props) => (
           <a className="navbar-button" href="#">New App</a>
         </div>
         <div className="navbar-logo-container">
-          <img className="navbar-logo" src={window.logo} alt="Huddle" />
+          <a href="#"><img className="navbar-logo" src={window.logo} alt="Huddle" /></a>
         </div>
 
         <AppButtons />
