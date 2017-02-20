@@ -10,7 +10,7 @@ const receiveCurrentUser = currentUser => ({
 
 const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
-  errors: errors
+  errors
 });
 
 export const signup = user => dispatch => (

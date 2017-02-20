@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import * as SessionAPIUtil from './util/session_api_util';
+import * as CategoryAPIUtil from './util/categories_api_util';
 import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  window.logout = SessionAPIUtil.logout;
+  window.getCategories = CategoryAPIUtil.getCategories;
+  window.getCategory = CategoryAPIUtil.getCategory;
   window.store = store;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
