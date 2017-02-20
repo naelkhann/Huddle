@@ -9,10 +9,14 @@
 User.destroy_all
 Group.destroy_all
 Category.destroy_all
+CategoriesGroup.destroy_all
+Huddle.destroy_all
+HuddlesUser.destroy_all
+
 # Users
-chim4ira312 = User.create(username: "chim4ira312", password: "split312")
-mega0319 = User.create(username: "mega0319", password: "password")
-guest = User.create(username: "Guest", password: "password")
+chim4ira312 = User.create(username: "chim4ira312", password: "split312", name: "Nael Khan")
+mega0319 = User.create(username: "mega0319", password: "password", name: "Naz Khan")
+guest = User.create(username: "Guest", password: "password", name: "Guest User")
 
 # Groups
 vegetarians = Group.create(name: "NYC Vegetarians", description: "Come together and meet with New York City Vegetarians for restaurant trips, cooking sessions, and more!", moderator_id: guest.id)
@@ -50,3 +54,11 @@ smashbros_fam = CategoriesGroup.create(group_id: smashbros.id, category_id: fam_
 rockclimb_fam = CategoriesGroup.create(group_id: rockclimb.id, category_id: fam_cat.id)
 rockclimb_health = CategoriesGroup.create(group_id: rockclimb.id, category_id: health_cat.id)
 rockclimb_outdoors = CategoriesGroup.create(group_id: rockclimb.id, category_id: outdoors_cat.id)
+
+#huddles
+smash1 = Huddle.create(title: "Pro Smash Players", group_id: smashbros.id, description: "Calling all Pro level Smash Players. Let's meet up and have a few local multiplayer brawls in NY. Location to be announced. Bring your own gear if you want. Wii U consoles will be provided.", date: DateTime.now, location: "New York, NY", founded_on: Date.new(2017, 02, 20), moderator_id: guest.id)
+
+#huddles_users
+smash_guest = HuddlesUser.create(huddle_id: smash1.id, user_id: guest.id)
+smash_guest2 = HuddlesUser.create(huddle_id: smash1.id, user_id: chim4ira312.id)
+smash_guest3 = HuddlesUser.create(huddle_id: smash1.id, user_id: mega0319.id)

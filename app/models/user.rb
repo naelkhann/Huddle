@@ -25,6 +25,12 @@ class User < ApplicationRecord
   has_attached_file :image, default_url: "profile.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+  has_many :huddles_users
+
+  has_many :memberships,
+    through: :huddles_users,
+    source: :huddle
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)
