@@ -1,0 +1,15 @@
+.category-poster {
+  width: 100%;
+  height: 350px;
+  background-color: rgb(233, 167, 197);
+  .category-poster-inner {
+    width: 70%;
+    box-sizing: border-box;
+    padding: 20px 0;
+    margin: 0 auto;
+    h1 {
+
+      color: white;
+    }
+  }
+}

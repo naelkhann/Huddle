@@ -36,7 +36,11 @@ class Category extends React.Component {
     const {myId, category, groups} = this.props;
     return (
       <div>
-        <h1>{category.name}</h1>
+        <div className="category-poster">
+          <div className="category-poster-inner">
+            <h1>{category.name}</h1>
+          </div>
+        </div>
         {this.renderGroups()}
       </div>
     );
