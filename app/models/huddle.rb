@@ -1,0 +1,2 @@
+class Huddle < ApplicationRecord
+end
