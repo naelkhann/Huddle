@@ -32,7 +32,25 @@ class Group extends React.Component {
               <li><a href="#">Photos</a></li>
               <li><a href="#">More</a></li>
             </ul>
+            <ul>
+              <a className="group-header-join-btn" href="#">Join us!</a>
+            </ul>
           </nav>
+        </div>
+
+        <div className="group-information-container">
+          <div className="group-info">
+            <div className="image">Group logo</div>
+          </div>
+
+          <div className="group-description-container">
+            <h4 className="description">{this.props.group.description}</h4>
+
+            <ul className="huddles-nav">
+              <li className="active">Upcoming</li>
+              <li>Past</li>
+            </ul>
+          </div>
         </div>
       </div>
     );

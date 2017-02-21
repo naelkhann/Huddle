@@ -1,7 +1,8 @@
 @import "../variables";
+@import "../button";
 
 .group-header {
-  width: 70%;
+  width: 960px;
   margin: 10px auto;
   border: 1px solid #bbb;
   border-radius: 7px;
@@ -23,9 +24,13 @@
 }
 
 .group-header-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
   ul {
     list-style-type: none;
     display: flex;
+    align-items: baseline;
     li {
       display: block;
       padding: 10px;
@@ -38,6 +43,57 @@
         background-color: $meetup-red;
         border-radius: 4px;
         color: white;
+      }
+    }
+  }
+  .group-header-join-btn {
+    @include meetup-button;
+    @include red-button;
+    margin-right: auto;
+  }
+}
+
+.group-information-container {
+  display: flex;
+  width: 960px;
+  margin: 0 auto;
+  .group-info {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: content-box;
+    padding: 5px;
+    .image {
+      display: block;
+      width: 200px;
+      height: 100px;
+      border: 1px solid black;
+    }
+  }
+
+  .group-description-container {
+    margin-left: 15px;
+    width: 750px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    .description {
+      padding: 10px;
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .huddles-nav {
+      padding: 0 10px;
+      display: flex;
+      li {
+        padding: 5px;
+      }
+      .active {
+        border-bottom: 4px solid rgb(55, 116, 219);
+        font-weight: bold;
       }
     }
   }

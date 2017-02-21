@@ -25,7 +25,7 @@ overwatchers = Group.create(name: "Overwatchers", description: "All Overwatch pl
 
 watchers = Group.create(name: "Movie Buffs", description: "Meet other movie buffs for viewings, discussions, and more!", moderator_id: chim4ira312.id)
 
-smashbros = Group.create(name: "Huddle Up Smash Bros!", description: "All things Super Smash Bros. related! Join tournaments and socialize with other players. Monthly tournaments happening! We embrace all skill levels of players", moderator_id: guest.id)
+smashbros = Group.create(name: "Huddle Up Smash Bros!", description: "All things Super Smash Bros. related! Join tournaments and socialize with other players. Monthly tournaments happening! We embrace players of all skill levels", moderator_id: guest.id)
 
 gourmet = Group.create(name: "The Gourmet Gathering", description: "Are you a foodie? Join our group and meet others who love trying new restaurants and recipes, and love all things food!", moderator_id: chim4ira312.id)
 
