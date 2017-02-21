@@ -4,9 +4,9 @@ import { getGroup } from '../../actions/groups_actions';
 import { arrayOfHuddles } from '../../reducers/selectors';
 import { Link } from 'react-router';
 
-const mapStateToProps = ({group}, ownProps) => ({
-  group,
-  huddles: arrayOfHuddles(group)
+const mapStateToProps = (state, ownProps) => ({
+  group: state.group,
+  huddles: arrayOfHuddles(state)
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
