@@ -49,7 +49,7 @@ class Group extends React.Component {
             <h3 className="huddle-date">{huddle.day}</h3>
             <h3 className="huddle-time">{huddle.time}</h3>
             <h3 className="huddle-time">{`${this.getDaysTilHuddle(huddle.date)} days left`}</h3>
-            <Link to={`huddle/${huddle.id}`}>RSVP</Link>
+            <Link to={`huddles/${huddle.id}`}>RSVP</Link>
           </div>
         </div>
       </div>

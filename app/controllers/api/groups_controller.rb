@@ -5,7 +5,7 @@ class Api::GroupsController < ApplicationController
     if @group.save!
       render "api/groups/show"
     else
-      render json: @groups.errors, status: 422
+      render json: @group.errors, status: 422
     end
   end
 

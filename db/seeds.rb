@@ -57,6 +57,15 @@ rockclimb_outdoors = CategoriesGroup.create(group_id: rockclimb.id, category_id:
 
 #huddles
 smash1 = Huddle.create(title: "Pro Smash Players", group_id: smashbros.id, description: "Calling all Pro level Smash Players. Let's meet up and have a few local multiplayer brawls in NY. Location to be announced. Bring your own gear if you want. Wii U consoles will be provided.", date: DateTime.parse('4 March 2017 20:30:00'), location: "54 W 21st St, New York, NY 10010", founded_on: Date.new(2017, 02, 20), moderator_id: guest.id)
+smash2 = Huddle.create(
+  title: "Smash Classes",
+  group_id: smashbros.id,
+  description: "Hey Super Smash Bros player, are you interested in getting better at your favorite game? We hold classes every month to go over player strategies, focus on moves and tactics on a professional level, and help you master your facvorite character! Join now - we have free pizza and drinks at every huddle meeting",
+  date: DateTime.parse('15 Mar 2017 17:30:00'),
+  location: "10 Rockefeller Plaza, New York, NY 10020",
+  founded_on: Date.new(2017, 2, 12),
+  moderator_id: mega0319.id
+)
 
 #huddles_users
 smash_guest = HuddlesUser.create(huddle_id: smash1.id, user_id: guest.id)

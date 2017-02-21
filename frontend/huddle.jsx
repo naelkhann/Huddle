@@ -1,9 +1,10 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import * as SessionAPIUtil from './util/session_api_util';
 import * as CategoryAPIUtil from './util/categories_api_util';
+import * as GroupAPIUtil from './util/groups_api_util';
+import * as HuddleAPIUtil from './util/huddles_api_util';
 import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,8 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  window.getCategories = CategoryAPIUtil.getCategories;
-  window.getCategory = CategoryAPIUtil.getCategory;
+  window.getHuddle = HuddleAPIUtil.getHuddle;
+  window.createHuddle = HuddleAPIUtil.createHuddle;
+  window.deleteHuddle = HuddleAPIUtil.deleteHuddle;
   window.store = store;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

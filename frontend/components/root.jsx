@@ -5,9 +5,9 @@ import App from './app';
 import CategoriesIndex from './categories/categories_index';
 import Category from './categories/category';
 import Group from './groups/group';
+import Huddle from './huddles/huddle';
 import SessionFormContainer from './session/session_form_container';
 import UserIndex from './user/user_index';
-
 
 
 const Root = ({store}) => {
@@ -34,6 +34,7 @@ const Root = ({store}) => {
           <IndexRoute component={ CategoriesIndex } />
           <Route path="categories/:categoryId" component={ Category } />
           <Route path="groups/:groupId" component={ Group } />
+          <Route path="huddles/:huddleId" component={ Huddle } />
           <Route path="/login" component={ SessionFormContainer } />
           <Route path="/register" component={ SessionFormContainer } />
           <Route path="/user" component={ UserIndex } onEnter={_redirectIfLoggedIn} />
