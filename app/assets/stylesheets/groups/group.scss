@@ -1,6 +1,11 @@
 @import "../variables";
 @import "../button";
 
+@mixin group-info-children-pad(){
+  padding: 5px 5px 0 5px;
+}
+
+
 .group-header {
   width: 960px;
   margin: 10px auto;
@@ -58,9 +63,11 @@
   width: 960px;
   margin: 0 auto;
   .group-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative;
     width: 200px;
-    height: 200px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: content-box;
@@ -71,29 +78,95 @@
       height: 100px;
       border: 1px solid black;
     }
-  }
+    .location {
+      font-weight: normal;
+      @include group-info-children-pad;
+    }
+    .num-huddles, .num-members {
+      font-size: 14px;
+      @include group-info-children-pad;
+    }
 
+    .organizer {
+      border-top: 1px solid #ccc;
+      display: block;
+      width: 190px;
+      margin: 10px 0 5px 0;
+      @include group-info-children-pad;
+    }
+    .organizer-container {
+      display: flex;
+      align-items: center;
+      @include group-info-children-pad;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      h4 {
+        font-weight: normal;
+        padding: 0 10px;
+      }
+    }
+  }
   .group-description-container {
     margin-left: 15px;
-    width: 750px;
-    height: 200px;
+    width: 735px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    box-sizing: border-box;
+    box-sizing: content-box;
     .description {
       padding: 10px;
       font-size: 18px;
       font-weight: normal;
     }
     .huddles-nav {
-      padding: 0 10px;
+      padding: 0 20px;
       display: flex;
       li {
         padding: 5px;
+        cursor: pointer;
       }
       .active {
         border-bottom: 4px solid rgb(55, 116, 219);
         font-weight: bold;
+      }
+    }
+    .group-huddle-container {
+      padding: 20px;
+      .group-huddle-detail-container {
+        display: flex;
+        .group-huddle-detail-left {
+          width: 550px;
+          padding: 5px 10px 10px 0;
+          .huddle-location {
+            font-weight: normal;
+            font-size: 14px;
+            color: #bbb;
+
+          }
+          .huddle-description {
+            font-weight: normal;
+          }
+        }
+
+        .group-huddle-detail-right {
+          width: 161px;
+          padding: 5px 10px 10px 10px;
+          .huddle-date {
+            font-weight: normal;
+          }
+          .huddle-time {
+            font-weight: normal;
+            font-size: 14px;
+          }
+          a {
+            text-decoration: none;
+            color: $meetup-red;
+            display: block;
+            width: 50px;
+            padding: 5px 0;
+          }
+        }
       }
     }
   }
