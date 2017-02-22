@@ -109,14 +109,35 @@
     }
   }
 
-  .huddle-description-container {
+  .huddle-container {
     margin-left: 15px;
-    width: 735px;
+    width: 550px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: content-box;
+    padding: 10px;
     .title {
       padding: 10px;
+    }
+    .day-time-container, .location-container {
+      display: flex;
+      align-items: baseline;
+      padding: 0 20px;
+      i {
+        color: #bbb;
+      }
+      h2 {
+        font-size: 21px;
+      }
+      h3 {
+        font-size: 17px;
+      }
+    }
+    .day-time-inner, .location-inner {
+      padding: 0 10px;
+    }
+    .time {
+      font-weight: normal;
     }
     .description {
       padding: 10px;
@@ -124,5 +145,42 @@
       font-weight: normal;
     }
 
+  }
+
+  .huddle-members-container {
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    width: 180px;
+    box-sizing: border-box;
+    padding: 15px;
+    h2 {
+      font-size: 20px;
+    }
+    .huddle-members-btn-container {
+      display: flex;
+      padding: 5px 0 10px;
+      a {
+        @include meetup-button;
+        @include red-button;
+        width: 100px;
+        margin-left: 0;
+      }
+    }
+    .huddle-members-inner {
+      border-top: 1px solid #ccc;
+      padding: 10px 0;
+    }
+    .member-container {
+      display: flex;
+      padding: 10px 0;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      h4 {
+        margin-left: 5px;
+      }
+    }
   }
 }

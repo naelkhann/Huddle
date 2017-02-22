@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getHuddle, createHuddle, deleteHuddle } from '../../actions/huddles_actions';
+import { arrayOfMembers } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => ({
   huddle: state.huddle,
-  group: state.huddle.group
+  group: state.huddle.group,
+  members: arrayOfMembers(state)
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -19,6 +21,17 @@ class Huddle extends React.Component {
 
   componentDidMount(){
     this.props.getHuddle(this.props.params.huddleId);
+  }
+
+  renderMembers(){
+    const members = this.props.members.map((member, idx) => (
+      <div key={idx} className="member-container">
+        <img src={member.image}/>
+        <h4>{member.name}</h4>
+      </div>
+    ));
+
+    return members;
   }
 
   render(){
@@ -58,9 +71,35 @@ class Huddle extends React.Component {
 
           </div>
 
-          <div className="huddle-description-container">
+          <div className="huddle-container">
             <h1 className="title">{huddle.title}</h1>
-            <h4 className="description">{huddle.description}</h4>
+            <div className="day-time-container">
+              <i className="fa fa-clock-o fa-lg"></i>
+              <div className="day-time-inner">
+                <h2 className="day">{huddle.day}</h2>
+                <h3 className="time">{huddle.time}</h3>
+              </div>
+            </div>
+            <div className="location-container">
+              <i className="fa fa-map-marker fa-lg"></i>
+              <div className="location-inner">
+                <h2 className="location">{huddle.location}</h2>
+              </div>
+            </div>
+
+            <h3 className="description">{huddle.description}</h3>
+          </div>
+
+          <div className="huddle-members-container">
+            <h2>Are you going?</h2>
+            <div className="huddle-members-btn-container">
+              <a className="huddle-members-btn" href="#">Yes</a>
+              <a className="huddle-members-btn" href="#">No</a>
+            </div>
+            <div className="huddle-members-inner">
+              <h2>{huddle.num_members} going</h2>
+            </div>
+            {this.renderMembers()}
           </div>
         </div>
       </div>

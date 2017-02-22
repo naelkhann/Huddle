@@ -13,12 +13,15 @@ $uniform-width: 70%;
 }
 
 .categories-container {
-  width: $uniform-width;
+  max-width: 1000px;
   margin: $top-margin;
   display: flex;
-  justify-content: space-around;
-  flex-flow: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
+
 
 .categories-heading {
   display: block;
@@ -29,7 +32,12 @@ $uniform-width: 70%;
 }
 
 .category-container {
-  margin: $top-margin;
+  margin: 10px;
+}
+
+.category-container:after {
+  content: "";
+  flex: auto;
 }
 
 .categories-images {
