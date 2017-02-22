@@ -73,7 +73,6 @@ class Group extends React.Component {
     const numMembers = this.props.group.members ? this.props.group.members.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
-    debugger
     return(
       <div>
         <div className="group-header">
