@@ -36,7 +36,7 @@ class AppButtons extends React.Component {
     return (
       <div className="navbar-buttons-container">
         <h4 className="session-form-label">{this.props.currentUser.username}</h4>
-        <img className="navbar-profile-img" src={this.props.currentUser.image_url}/>
+        <Link to="/user"><img className="navbar-profile-img" src={this.props.currentUser.image_url}/></Link>
         <button className="navbar-button red-button" onClick={this.logoutFn}>Log Out</button>
       </div>
     );

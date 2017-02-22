@@ -31,7 +31,7 @@ const Root = ({store}) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={ App }>
-          <IndexRoute component={ CategoriesIndex } onEnter={_redirectIfLoggedIn} />
+          <IndexRoute component={ CategoriesIndex } />
           <Route path="categories/:categoryId" component={ Category } />
           <Route path="groups/:groupId" component={ Group } />
           <Route path="huddles/:huddleId" component={ Huddle } />
