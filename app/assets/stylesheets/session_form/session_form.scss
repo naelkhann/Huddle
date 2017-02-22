@@ -103,8 +103,15 @@ $session-form-margin-top: 10px;
     padding: 8px 16px;
     border-radius: 3px;
     font-family: $meetup-font;
-    background-color: $facebook-blue;
+    background-color: white;
+    border: 1px solid $facebook-blue;
     text-align: center;
-    color: white;
+    color: tint($facebook-blue);
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: $facebook-blue;
+      color: white;
+    }
+
   }
 }

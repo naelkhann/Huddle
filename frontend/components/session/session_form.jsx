@@ -7,6 +7,7 @@ class SessionForm extends React.Component {
     super(props);
     this.state = { username: "", password: "", errors: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogIn = this.guestLogIn.bind(this);
   }
 
 
@@ -48,6 +49,22 @@ class SessionForm extends React.Component {
     }
   }
 
+  guestLogInButton(formTypeLabel){
+    if (formTypeLabel === "Log in"){
+      return (
+        <div className="session-form-guest-container">
+          <h4 className="session-form-guest-or">OR</h4>
+          <button className="session-form-guest-btn" onClick={this.guestLogIn}>See A Demo</button>
+        </div>
+      );
+    }
+  }
+
+  guestLogIn(e){
+    e.preventDefault();
+    this.setState({username: "Guest", password: "password"});
+  }
+
   render(){
     const formTypeLabel = this.props.formType === "login" ? "Log in" : "Sign up";
     return (
@@ -72,11 +89,7 @@ class SessionForm extends React.Component {
             <input className="session-form-submit" type="submit" value={formTypeLabel} />
             {this.linkBackToLogIn(formTypeLabel)}
           </form>
-
-          <div className="session-form-guest-container">
-            <h4 className="session-form-guest-or">OR</h4>
-            <button className="session-form-guest-btn">Demo Log in for Guests</button>
-          </div>
+          {this.guestLogInButton(formTypeLabel)}
 
         </div>
 
