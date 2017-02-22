@@ -1,1 +1,1 @@
-json.extract! @category, :id, :name, :thumb, :cover, :groups
+json.extract! @category, :id, :name, :cover, :groups

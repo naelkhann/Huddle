@@ -37,6 +37,7 @@ class Category extends React.Component {
     return (
       <div>
         <div className="category-poster">
+          <img className="category-poster-img" src={category.cover} />
           <div className="category-poster-inner">
             <h1>{category.name} Huddles</h1>
           </div>
