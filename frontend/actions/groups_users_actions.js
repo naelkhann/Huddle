@@ -10,3 +10,7 @@ const receiveJoinedGroup = (groupId) =>({
 export const createGroupsUser = (groups_user) => dispatch => (
   GroupsUsersAPIUtil.createGroupsUser(groups_user).then((res) => dispatch(receiveJoinedGroup(res.group_id)))
 );
+
+export const deleteGroupsUser = (id) => dispatch => (
+  GroupsUsersAPIUtil.deleteGroupsUser(id)
+);

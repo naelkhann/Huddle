@@ -7,3 +7,4 @@ user.memberships.each do |membership|
 end
 
 json.memberships memberships_arr
+# json.groups_users_ids groups_users_ids

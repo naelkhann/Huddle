@@ -7,6 +7,10 @@ end
 
 json.members group.members, :id, :name
 
+member_ids = group.members.map { |e| e.id  }
+
+json.is_user_a_member member_ids.include? current_user.id
+
 if group.huddles.empty?
   json.huddles({})
 else

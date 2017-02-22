@@ -1,23 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getGroup } from '../../actions/groups_actions';
-import { createGroupsUser } from '../../actions/groups_users_actions';
+import { createGroupsUser, deleteGroupsUser } from '../../actions/groups_users_actions';
 import { arrayOfHuddles } from '../../reducers/selectors';
 import { Link, withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
   let isMember;
   let userId;
+  const group = state.group;
+  const huddles = arrayOfHuddles(state);
   if(state.session.currentUser){
     userId = state.session.currentUser.id;
-    isMember = state.session.currentUser.memberships.includes(state.group.id);
+    isMember = group.is_user_a_member;
   } else {
     userId = null;
     isMember = null;
   }
   return {
-    group: state.group,
-    huddles: arrayOfHuddles(state),
+    group,
+    huddles,
     userId,
     isMember
   };
@@ -25,7 +27,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getGroup: (group) => dispatch(getGroup(group)),
-  createGroupsUser: (groups_user) => dispatch(createGroupsUser(groups_user))
+  createGroupsUser: (groups_user) => dispatch(createGroupsUser(groups_user)),
+  deleteGroupsUser: (id) => dispatch(deleteGroupsUser(id))
 });
 
 class Group extends React.Component {
@@ -35,7 +38,7 @@ class Group extends React.Component {
       active_li: "Upcoming"
     };
     this.toggleNav = this.toggleNav.bind(this);
-    this.joinGroup = this.joinGroup.bind(this);
+    this.joinGroupToggle = this.joinGroupToggle.bind(this);
   }
 
   componentDidMount(){
@@ -46,11 +49,15 @@ class Group extends React.Component {
     this.setState({active_li: e.target.innerHTML});
   }
 
-  joinGroup(e){
+  joinGroupToggle(e){
     e.preventDefault();
     if(this.props.userId){
-      const membership = {group_id: this.props.group.id, user_id: this.props.currentUser};
-      this.props.createGroupsUser(membership).then(res => console.log(res));
+      if(this.props.isMember){
+        this.props.deleteGroupsUser(this.props.group.id).then(res => console.log(res));
+      } else {
+        const membership = {group_id: this.props.group.id, user_id: this.props.userId};
+        this.props.createGroupsUser(membership).then(res => console.log(res));
+      }
     } else {
       this.props.router.push('/register');
     }
@@ -103,7 +110,7 @@ class Group extends React.Component {
               <li><a href="#">More</a></li>
             </ul>
             <ul>
-              <button className="group-header-join-btn" onClick={this.joinGroup}>{this.props.isMember ? "Already" : "Join Us"}</button>
+              <button className="group-header-join-btn" onClick={this.joinGroupToggle}>{this.props.isMember ? "Already" : "Join Us"}</button>
             </ul>
           </nav>
         </div>

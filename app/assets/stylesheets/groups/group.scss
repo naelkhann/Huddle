@@ -120,7 +120,7 @@
       font-weight: normal;
     }
     .huddles-nav {
-      padding: 0 20px;
+      padding: 0 20px 20px 20px;
       display: flex;
       li {
         padding: 5px;
@@ -132,7 +132,7 @@
       }
     }
     .group-huddle-container {
-      padding: 20px;
+      padding: 0 20px 20px 20px;
       .group-huddle-detail-container {
         display: flex;
         .group-huddle-detail-left {
