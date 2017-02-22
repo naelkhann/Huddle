@@ -17,6 +17,11 @@ class Group < ApplicationRecord
   has_many :categories_groups
   has_many :categories, through: :categories_groups
 
+  has_many :groups_users
+  has_many :members, 
+    through: :groups_users,
+    source: :user
+
   has_many :huddles, -> { distinct }, dependent: :destroy
 
   belongs_to :moderator,

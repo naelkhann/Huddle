@@ -26,10 +26,14 @@ class User < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :huddles_users
-
-  has_many :memberships,
+  has_many :rsvps,
     through: :huddles_users,
     source: :huddle
+
+  has_many :groups_users
+  has_many :memberships,
+    through: :groups_users,
+    source: :group
 
   attr_reader :password
 
