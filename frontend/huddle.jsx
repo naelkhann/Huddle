@@ -15,9 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  window.getHuddle = HuddleAPIUtil.getHuddle;
-  window.createHuddle = HuddleAPIUtil.createHuddle;
-  window.deleteHuddle = HuddleAPIUtil.deleteHuddle;
   window.store = store;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
