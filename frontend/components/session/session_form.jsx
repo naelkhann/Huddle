@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router';
 
+
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
@@ -15,7 +16,7 @@ class SessionForm extends React.Component {
 
   redirectIfLoggedIn(){
     if(this.props.loggedIn){
-      this.props.router.push("/user");
+      this.props.router.goBack();
     }
   }
 

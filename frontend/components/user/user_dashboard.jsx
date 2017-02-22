@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 });
 
-class UserIndex extends React.Component {
+class UserDashboard extends React.Component {
   constructor(props){
     super(props);
   }
@@ -25,4 +25,4 @@ class UserIndex extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserIndex);
+)(UserDashboard);

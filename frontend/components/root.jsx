@@ -7,7 +7,7 @@ import Category from './categories/category';
 import Group from './groups/group';
 import Huddle from './huddles/huddle';
 import SessionFormContainer from './session/session_form_container';
-import UserIndex from './user/user_index';
+import UserDashboard from './user/user_dashboard';
 
 
 const Root = ({store}) => {
@@ -22,7 +22,7 @@ const Root = ({store}) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/user');
     }
   };
 
@@ -31,13 +31,13 @@ const Root = ({store}) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={ App }>
-          <IndexRoute component={ CategoriesIndex } />
+          <IndexRoute component={ CategoriesIndex } onEnter={_redirectIfLoggedIn} />
           <Route path="categories/:categoryId" component={ Category } />
           <Route path="groups/:groupId" component={ Group } />
           <Route path="huddles/:huddleId" component={ Huddle } />
           <Route path="/login" component={ SessionFormContainer } />
           <Route path="/register" component={ SessionFormContainer } />
-          <Route path="/user" component={ UserIndex } onEnter={_redirectIfLoggedIn} />
+          <Route path="/user" component={ UserDashboard } onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>

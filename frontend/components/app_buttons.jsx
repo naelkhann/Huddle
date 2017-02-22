@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import { logout } from '../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -11,26 +11,48 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   logout: () => dispatch(logout())
 });
 
-const sessionLinks = () => (
-  <div className="navbar-buttons-container">
-    <Link to="/login" className="navbar-button">Log in</Link>
-    <Link to="/register" className="navbar-button red-button" id="signup">Sign up</Link>
-  </div>
-);
 
-const greetAndLogout = (currentUser, logoutFn) => (
-  <div className="navbar-buttons-container">
-    <h4 className="session-form-label">{currentUser.username}</h4>
-    <img className="navbar-profile-img" src={currentUser.image_url}/>
-    <button className="navbar-button red-button" onClick={logoutFn}>Log Out</button>
-  </div>
-);
+class AppButtons extends React.Component {
+  constructor(props){
+    super(props);
+    this.logoutFn = this.logoutFn.bind(this);
+  }
 
-const AppButtons = (props) => (
-  props.currentUser ? greetAndLogout(props.currentUser, props.logout) : sessionLinks()
-);
+  sessionLinks(){
+    return(
+      <div className="navbar-buttons-container">
+        <Link to="/login" className="navbar-button">Log in</Link>
+        <Link to="/register" className="navbar-button red-button" id="signup">Sign up</Link>
+      </div>
+    );
+  }
+
+  logoutFn(e) {
+    e.preventDefault();
+    this.props.logout().then(() => this.props.router.push('/'));
+  }
+
+  greetAndLogout(){
+    return (
+      <div className="navbar-buttons-container">
+        <h4 className="session-form-label">{this.props.currentUser.username}</h4>
+        <img className="navbar-profile-img" src={this.props.currentUser.image_url}/>
+        <button className="navbar-button red-button" onClick={this.logoutFn}>Log Out</button>
+      </div>
+    );
+  }
+
+  render() {
+    if (this.props.currentUser) {
+      return this.greetAndLogout();
+    } else {
+      return this.sessionLinks();
+    }
+  }
+
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AppButtons);
+)(withRouter(AppButtons));
