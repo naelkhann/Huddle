@@ -9,4 +9,14 @@ class Api::UsersController < ApplicationController
       render json: @user.errors, status: 422
     end
   end
+
+  def show
+    @user = User.find(params[:id])
+
+    if @user
+      render "api/users/show"
+    else
+      render json: { base: "Couldn't find em", status: 404 }
+    end
+  end
 end

@@ -1,16 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getGroup } from '../../actions/groups_actions';
+import { createGroupsUser } from '../../actions/groups_users_actions';
 import { arrayOfHuddles } from '../../reducers/selectors';
 import { Link } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => ({
   group: state.group,
-  huddles: arrayOfHuddles(state)
+  huddles: arrayOfHuddles(state),
+  currentUser: state.session.currentUser.id,
+  isMember: state.session.currentUser.memberships.includes(state.group.id)
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getGroup: (group) => dispatch(getGroup(group))
+  getGroup: (group) => dispatch(getGroup(group)),
+  createGroupsUser: (groups_user) => dispatch(createGroupsUser(groups_user))
 });
 
 class Group extends React.Component {
@@ -20,6 +24,7 @@ class Group extends React.Component {
       active_li: "Upcoming"
     };
     this.toggleNav = this.toggleNav.bind(this);
+    this.joinGroup = this.joinGroup.bind(this);
   }
 
   componentDidMount(){
@@ -28,6 +33,12 @@ class Group extends React.Component {
 
   toggleNav(e) {
     this.setState({active_li: e.target.innerHTML});
+  }
+
+  joinGroup(e){
+    e.preventDefault();
+    const membership = {group_id: this.props.group.id, user_id: this.props.currentUser};
+    this.props.createGroupsUser(membership).then(res => console.log(res));
   }
 
   getDaysTilHuddle(day){
@@ -62,6 +73,7 @@ class Group extends React.Component {
     const numMembers = this.props.group.members ? this.props.group.members.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
+    debugger
     return(
       <div>
         <div className="group-header">
@@ -77,7 +89,7 @@ class Group extends React.Component {
               <li><a href="#">More</a></li>
             </ul>
             <ul>
-              <a className="group-header-join-btn" href="#">Join us!</a>
+              <button className="group-header-join-btn" onClick={this.joinGroup}>{this.props.isMember ? "Already" : "Join Us"}</button>
             </ul>
           </nav>
         </div>
