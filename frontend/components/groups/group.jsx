@@ -3,14 +3,25 @@ import { connect } from 'react-redux';
 import { getGroup } from '../../actions/groups_actions';
 import { createGroupsUser } from '../../actions/groups_users_actions';
 import { arrayOfHuddles } from '../../reducers/selectors';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
-const mapStateToProps = (state, ownProps) => ({
-  group: state.group,
-  huddles: arrayOfHuddles(state),
-  currentUser: state.session.currentUser.id,
-  isMember: state.session.currentUser.memberships.includes(state.group.id)
-});
+const mapStateToProps = (state, ownProps) => {
+  let isMember;
+  let userId;
+  if(state.session.currentUser){
+    userId = state.session.currentUser.id;
+    isMember = state.session.currentUser.memberships.includes(state.group.id);
+  } else {
+    userId = null;
+    isMember = null;
+  }
+  return {
+    group: state.group,
+    huddles: arrayOfHuddles(state),
+    userId,
+    isMember
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getGroup: (group) => dispatch(getGroup(group)),
@@ -37,8 +48,12 @@ class Group extends React.Component {
 
   joinGroup(e){
     e.preventDefault();
-    const membership = {group_id: this.props.group.id, user_id: this.props.currentUser};
-    this.props.createGroupsUser(membership).then(res => console.log(res));
+    if(this.props.userId){
+      const membership = {group_id: this.props.group.id, user_id: this.props.currentUser};
+      this.props.createGroupsUser(membership).then(res => console.log(res));
+    } else {
+      this.props.router.push('/register');
+    }
   }
 
   getDaysTilHuddle(day){
@@ -132,4 +147,4 @@ class Group extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Group);
+)(withRouter(Group));
