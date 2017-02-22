@@ -13,8 +13,8 @@ $uniform-width: 70%;
 }
 
 .categories-container {
-  max-width: 1000px;
-  margin: $top-margin;
+  max-width: 1200px;
+  padding: 20px 50px 0 50px;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
@@ -28,6 +28,7 @@ $uniform-width: 70%;
   width: $uniform-width;
   margin: $top-margin;
   font-family: $meetup-font;
+  font-size: 40px;
   text-align: center;
 }
 
@@ -40,13 +41,21 @@ $uniform-width: 70%;
   flex: auto;
 }
 
-.categories-images {
-  display: block;
-  width: 225px;
-  height: 100px;
-  border: 1px solid $meetup-red-dark;
+
+.image {
+  max-height: 175px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
 }
 
+.image:hover {
+  transform: scale(1.025);
+}
+
+.categories-names {
+  font-size: 22px;
+}
 .categories-link {
   text-decoration: none;
   color: black;
@@ -62,6 +71,9 @@ $uniform-width: 70%;
   height: 380px;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
+  h1 {
+    font-size: 42px;
+  }
 }
 
 

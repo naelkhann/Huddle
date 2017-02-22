@@ -38,7 +38,7 @@ class Category extends React.Component {
       <div>
         <div className="category-poster">
           <div className="category-poster-inner">
-            <h1>{category.name}</h1>
+            <h1>{category.name} Huddles</h1>
           </div>
         </div>
         <div className="category-groups-container">

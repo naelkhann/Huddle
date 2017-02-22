@@ -34,14 +34,46 @@ android = Group.create(name: "Androids", description: "A group for everything An
 rockclimb = Group.create(name: "Rock Climbers Anonymous", description: "Interested in rock climbing? Join this group to see huddles based on rock climbing events, competitions, lessons, and more. Anyone welcome, of all ages and all skill levels", moderator_id: chim4ira312.id)
 
 #Categories
-outdoors_cat = Category.create(name: "Outdoors & Adventure")
-tech_cat = Category.create(name: "Tech")
-fam_cat = Category.create(name: "Family")
-health_cat = Category.create(name: "Health & Wellness")
-sports_cat = Category.create(name: "Sports & Fitness")
-learn_cat = Category.create(name: "Learning")
-photo_cat = Category.create(name: "Photography")
-food_cat = Category.create(name: "Food & Drink")
+outdoors_cat = Category.create(
+  name: "Outdoors & Adventure",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/outdoors.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/outdoors_cover.jpg"
+  )
+tech_cat = Category.create(
+  name: "Tech",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/tech.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/tech_cover.jpeg"
+  )
+fam_cat = Category.create(
+  name: "Family",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/family.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/family_cover.jpg"
+  )
+health_cat = Category.create(
+  name: "Health & Wellness",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/health.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/health_cover.jpeg"
+  )
+sports_cat = Category.create(
+  name: "Sports & Fitness",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/sports.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/sports_cover.jpeg"
+  )
+learn_cat = Category.create(
+  name: "Learning",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/learning.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/learning_cover.jpg"
+  )
+photo_cat = Category.create(
+  name: "Photography",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/photo.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/photo_cover.jpeg"
+  )
+food_cat = Category.create(
+  name: "Food & Drink",
+  thumb: "https://s3.amazonaws.com/huddle-application-dev/static_images/food.jpeg",
+  cover: "https://s3.amazonaws.com/huddle-application-dev/static_images/food_cover.jpg"
+  )
 
 #categories_groups
 veg_food = CategoriesGroup.create(group_id: vegetarians.id, category_id: food_cat.id)
