@@ -5,6 +5,8 @@ json.moderator do
   json.image asset_path(group.moderator.image.url)
 end
 
+json.members group.members, :id, :name
+
 if group.huddles.empty?
   json.huddles({})
 else

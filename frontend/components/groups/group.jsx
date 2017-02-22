@@ -59,6 +59,7 @@ class Group extends React.Component {
 
   render(){
     const numHuddles = this.props.huddles ? this.props.huddles.length : "";
+    const numMembers = this.props.group.members ? this.props.group.members.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
     return(
@@ -85,7 +86,7 @@ class Group extends React.Component {
           <div className="group-info">
             <div className="image">Group logo</div>
             <h3 className="location">Location</h3>
-            <p className="num-huddles">Num of Members</p>
+            <p className="num-huddles">Members: {numMembers}</p>
             <p className="num-members">Upcoming Huddles: {numHuddles}</p>
             <h3 className="organizer">Organizer:</h3>
             <div className="organizer-container">
