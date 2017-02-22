@@ -43,6 +43,12 @@
   }
 }
 
+#logout {
+  @include meetup-button;
+  @include red-button;
+  color: white;
+}
 .red-button {
   @include red-button;
+
 }
