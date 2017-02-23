@@ -1,0 +1,25 @@
+@import '../variables';
+@import '../button';
+
+.huddle-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  .huddle-form-cover {
+    height: 200px;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1, h2 {
+      display: block;
+      padding: 10px 0;
+      font-weight: normal;
+      color: white;
+    }
+    a {
+      @include meetup-button;
+      @include red-button;
+    }
+  }
+}

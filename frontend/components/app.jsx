@@ -8,7 +8,7 @@ const App = (props) => (
     <div className="navbar-container">
       <nav className="navbar">
         <div className="navbar-buttons-container">
-          <a className="navbar-button" href="#">Create a Huddle</a>
+          <Link className="navbar-button" to="/groups/new">Start a Group</Link>
           <a className="navbar-button" href="#">New App</a>
         </div>
         <div className="navbar-logo-container">

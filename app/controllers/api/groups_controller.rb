@@ -1,6 +1,6 @@
 class Api::GroupsController < ApplicationController
   def create
-    @group = Group.new(group_params)
+    @group = current_user.moderated_groups.new(group_params)
 
     if @group.save!
       render "api/groups/show"

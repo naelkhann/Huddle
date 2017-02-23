@@ -151,7 +151,6 @@ class Group extends React.Component {
               <img src={organizerImage}/>
               <h4>{organizerName}</h4>
             </div>
-
           </div>
 
           {this.renderGroupDescription()}

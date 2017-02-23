@@ -35,6 +35,10 @@ class User < ApplicationRecord
     through: :groups_users,
     source: :group
 
+  has_many :moderated_groups,
+    class_name: "Group",
+    foreign_key: :moderator_id
+  
   attr_reader :password
 
   def self.find_by_credentials(username, password)

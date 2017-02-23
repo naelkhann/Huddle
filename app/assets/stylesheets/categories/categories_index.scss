@@ -22,6 +22,17 @@ $uniform-width: 70%;
   align-items: center;
 }
 
+@media screen and (max-width: 1378px) {
+  .categories-container {
+    max-width: 1200px;
+    padding: 20px 50px 0 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
 
 .categories-heading {
   display: block;
@@ -85,7 +96,7 @@ $uniform-width: 70%;
 
 .categories-video-container {
   position: absolute;
-  bottom: 45%;
+  bottom: 43%;
   right: 0%;
   z-index: -10;
 }
