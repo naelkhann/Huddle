@@ -32,6 +32,7 @@ $uniform-width: 70%;
     flex-wrap: wrap;
     align-items: center;
   }
+
 }
 
 .categories-heading {
@@ -84,6 +85,7 @@ $uniform-width: 70%;
   color: white;
   h1 {
     font-size: 42px;
+    text-align: center;
   }
 }
 
@@ -99,4 +101,19 @@ $uniform-width: 70%;
   bottom: 43%;
   right: 0%;
   z-index: -10;
+}
+
+@media screen and (max-width: 1378px) {
+  .categories-video-container {
+    bottom: 49%;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .categories-video-container {
+    bottom: 50%;
+  }
+  .categories-video-cover{
+    height: 350px;
+  }
 }

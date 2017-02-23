@@ -37,7 +37,7 @@ class CategoriesIndex extends React.Component {
           <Link to="/register" className="categories-video-cover-btn">Sign Up</Link>
         </div>
         <div className="categories-video-container">
-          <video autoPlay muted width="100%">
+          <video autoPlay loop muted width="100%" poster="https://s3.amazonaws.com/huddle-application-dev/static_video/videoposter.png">
             <source src="https://s3.amazonaws.com/huddle-application-dev/static_video/video.mp4"
               type="video/mp4" />
             Your browser does not support the video embedded here
