@@ -25,8 +25,43 @@
     }
   }
   .group-form {
-    border: 1px solid black;
     margin: 0 auto;
     font-family: $meetup-font;
+    padding: 30px;
+    .group-form-labels {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .group-form-checkbox-label {
+      font-weight: normal;
+      font-size: 18px;
+    }
+    input[type="checkbox"] {
+      margin-left: 5px;
+
+    }
+    input[type="text"] {
+      width: 450px;
+      border-radius: 2px;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: normal;
+    }
+    textarea {
+      width: 500px;
+      height: 275px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: normal;
+    }
+    .group-form-submit-btn {
+      @include meetup-button;
+      @include red-button;
+    }
   }
 }

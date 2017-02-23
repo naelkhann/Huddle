@@ -53,6 +53,32 @@ class GroupForm extends React.Component {
     }
   }
 
+  renderFormForUser(){
+    if(this.props.currentUser){
+      return (
+        <form className="group-form" onSubmit={this.handleSubmit}>
+          <div>
+            <label className="group-form-labels">Which categories will your Group belong to? <br />
+            {this.renderCheckboxes()}
+          </label>
+        </div>
+        <br />
+        <label className="group-form-labels">Group Name:
+          <br />
+          <input type="text" value={this.state.name} onChange={this.updateProperty("name")} />
+        </label>
+        <br /><br />
+        <label className="group-form-labels">Group Description:
+          <br />
+          <textarea value={this.state.description} onChange={this.updateProperty("description")} />
+        </label>
+        <br /><br />
+        <input type="submit" className="group-form-submit-btn" value="Make Group"/>
+        </form>
+      );
+    }
+  }
+
   changeCategoriesState(categoryId){
     const selectedCategories = this.state.category_ids.slice();
     if(selectedCategories.includes(categoryId)){
@@ -85,7 +111,7 @@ class GroupForm extends React.Component {
   renderCheckboxes(){
 
     const checkboxes = this.props.categories.map((category, idx) => (
-      <label key={idx}>{category.name}
+      <label className="group-form-checkbox-label" key={idx}>{category.name}
         <input type="checkbox"
           value={category.name}
           checked={this.state.category_ids.includes(category.id)}
@@ -101,23 +127,14 @@ class GroupForm extends React.Component {
       <div className="group-form-wrapper">
         {this.props.currentUser ?
           this.renderForUser() :
-          this.renderForNullUser()}
+          this.renderForNullUser()
+        }
 
-        <form className="group-form" onSubmit={this.handleSubmit}>
-          <label>Which categories do your Group belong to? <br />
-            {this.renderCheckboxes()}
-          </label>
+        {this.props.currentUser ?
+          this.renderFormForUser() :
+          <div></div>
+        }
 
-          <label>Group Name:
-            <input type="text" value={this.state.name} onChange={this.updateProperty("name")} />
-          </label>
-
-          <label>Group Description:
-            <textarea value={this.state.description} onChange={this.updateProperty("description")} />
-          </label>
-
-          <input type="submit" value="Make Group"/>
-        </form>
       </div>
     );
   }
