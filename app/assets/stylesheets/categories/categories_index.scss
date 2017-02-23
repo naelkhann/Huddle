@@ -109,11 +109,16 @@ $uniform-width: 70%;
   }
 }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 860px) {
   .categories-video-container {
-    bottom: 50%;
+    video {
+      display: none;
+    }
   }
   .categories-video-cover{
     height: 350px;
+    width: 100%;
+    background-image: url("https://s3.amazonaws.com/huddle-application-dev/static_video/videoposter.png");
+    background-size: cover;
   }
 }
