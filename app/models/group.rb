@@ -14,11 +14,11 @@ class Group < ApplicationRecord
   validates :name, :description, presence: true
   validates :name, uniqueness: true
 
-  has_many :categories_groups
+  has_many :categories_groups, inverse_of: :group
   has_many :categories, through: :categories_groups
 
   has_many :groups_users
-  has_many :members, 
+  has_many :members,
     through: :groups_users,
     source: :user
 

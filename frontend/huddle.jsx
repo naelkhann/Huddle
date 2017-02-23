@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.createGroupsUser = GroupsUsersAPIUtil.createGroupsUser;
   window.deleteGroupsUser = GroupsUsersAPIUtil.deleteGroupsUser;
+  window.createGroup = GroupAPIUtil.createGroup;
   window.store = store;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

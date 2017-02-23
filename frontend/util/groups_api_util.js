@@ -12,11 +12,11 @@ export const getGroup = id => {
   });
 };
 
-export const createGroup = group => {
+export const createGroup = obj => {
   return $.ajax({
     method: 'POST',
     url: `api/groups`,
-    data: group
+    data: { group: obj }
   });
 };
 

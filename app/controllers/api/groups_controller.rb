@@ -1,8 +1,8 @@
 class Api::GroupsController < ApplicationController
   def create
     @group = current_user.moderated_groups.new(group_params)
-
-    if @group.save!
+    debugger
+    if @group.save
       render "api/groups/show"
     else
       render json: @group.errors, status: 422
@@ -25,6 +25,6 @@ class Api::GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :description, :moderator_id)
+    params.require(:group).permit(:name, :description, :moderator_id, category_ids: [])
   end
 end

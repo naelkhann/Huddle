@@ -10,8 +10,8 @@
 #
 
 class CategoriesGroup < ApplicationRecord
-  validates :group_id, :category_id, presence: true
+  validates :group, :category, presence: true
 
-  belongs_to :group
+  belongs_to :group, inverse_of: :categories_groups
   belongs_to :category
 end

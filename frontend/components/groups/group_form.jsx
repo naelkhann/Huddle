@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCategories: () => dispatch(getCategories())
+  getCategories: () => dispatch(getCategories()),
+  createGroup: (group) => dispatch(createGroup(group))
 });
 
 class GroupForm extends React.Component {
@@ -20,9 +21,10 @@ class GroupForm extends React.Component {
     this.state = {
       name: "",
       description: "",
-      categories: []
+      category_ids: []
     };
     this.changeCategoriesState = this.changeCategoriesState.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -52,13 +54,13 @@ class GroupForm extends React.Component {
   }
 
   changeCategoriesState(categoryId){
-    const selectedCategories = this.state.categories.slice();
+    const selectedCategories = this.state.category_ids.slice();
     if(selectedCategories.includes(categoryId)){
       const deleteId = selectedCategories.indexOf(categoryId);
       selectedCategories.splice(deleteId, 1);
-      this.setState({categories: selectedCategories});
+      this.setState({category_ids: selectedCategories});
     } else {
-      this.setState({categories: selectedCategories.concat(categoryId)});
+      this.setState({category_ids: selectedCategories.concat(categoryId)});
     }
   }
 
@@ -70,7 +72,14 @@ class GroupForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    alert("annoying");
+    const group = {
+      name: this.state.name,
+      description: this.state.description,
+      category_ids: this.state.category_ids
+    };
+    this.props.createGroup(group).then(
+      () => this.props.router.push(`/`)
+    );
   }
 
   renderCheckboxes(){
@@ -79,7 +88,7 @@ class GroupForm extends React.Component {
       <label key={idx}>{category.name}
         <input type="checkbox"
           value={category.name}
-          checked={this.state.categories.includes(category.id)}
+          checked={this.state.category_ids.includes(category.id)}
           onChange={() => this.changeCategoriesState(category.id)} />
         <br />
       </label>
@@ -94,7 +103,7 @@ class GroupForm extends React.Component {
           this.renderForUser() :
           this.renderForNullUser()}
 
-        <form onSubmit={this.handleSubmit}>
+        <form className="group-form" onSubmit={this.handleSubmit}>
           <label>Which categories do your Group belong to? <br />
             {this.renderCheckboxes()}
           </label>
@@ -117,4 +126,4 @@ class GroupForm extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(GroupForm);
+)(withRouter(GroupForm));

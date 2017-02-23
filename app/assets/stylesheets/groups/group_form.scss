@@ -1,0 +1,32 @@
+@import '../variables';
+@import '../button';
+
+.group-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  .group-form-cover {
+    height: 225px;
+    background-image: url("https://s3.amazonaws.com/huddle-application-dev/static_images/form_cover.jpeg");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1, h2 {
+      display: block;
+      padding: 10px 0;
+      font-weight: normal;
+      color: white;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.57);
+      text-align: center;
+    }
+    a {
+      @include meetup-button;
+      @include red-button;
+    }
+  }
+  .group-form {
+    border: 1px solid black;
+    margin: 0 auto;
+    font-family: $meetup-font;
+  }
+}
