@@ -60,7 +60,7 @@ class Group extends React.Component {
         this.props.createGroupsUser(membership).then(() => this.props.getGroup(this.props.params.groupId));
       }
     } else {
-      this.props.router.push('/register');
+      this.props.router.push('/login');
     }
   }
 
