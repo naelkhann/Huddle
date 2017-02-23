@@ -19,9 +19,18 @@ const App = (props) => (
       </nav>
     </div>
 
-    { props.children }
+    <div className="children-container">
+      { props.children }
+    </div>
 
-
+    <div className="footer">
+      <ul className="list">
+        <li>Home</li>
+        <li>About Me</li>
+        <li>Github</li>
+        <li>LinkedIn</li>
+      </ul>
+    </div>
   </div>
 );
 

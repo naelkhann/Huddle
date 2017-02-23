@@ -9,7 +9,9 @@ json.members group.members, :id, :name
 
 member_ids = group.members.map { |e| e.id  }
 
-json.is_user_a_member member_ids.include? current_user.id
+if current_user
+  json.is_user_a_member member_ids.include? current_user.id
+end
 
 if group.huddles.empty?
   json.huddles({})
@@ -33,4 +35,5 @@ else
       end
     end
   end
+  json.huddles_count group.huddles.size
 end

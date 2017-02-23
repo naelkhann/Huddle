@@ -52,3 +52,21 @@
   @include red-button;
 
 }
+
+.children-container {
+  min-height: 83vh;
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  .list {
+    display: flex;
+    padding: 20px 100px;
+    border-top: 1px solid white;
+    li {
+      padding: 10px;
+    }
+  }
+}

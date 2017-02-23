@@ -135,7 +135,7 @@ class Group extends React.Component {
               <li><a href="#">More</a></li>
             </ul>
             <ul>
-              <button className="group-header-join-btn" onClick={this.joinGroupToggle}>{this.props.isMember ? "Leave Group" : "Join Us"}</button>
+              <button className="group-header-join-btn" onClick={this.joinGroupToggle}>{this.props.isMember ? "Leave Group" : "Join Us!"}</button>
             </ul>
           </nav>
         </div>

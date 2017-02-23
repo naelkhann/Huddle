@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getHuddle, createHuddle, deleteHuddle } from '../../actions/huddles_actions';
 import { arrayOfMembers } from '../../reducers/selectors';
+import { Link } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => ({
   huddle: state.huddle,
-  group: state.huddle.group,
   members: arrayOfMembers(state)
 });
 
@@ -36,7 +36,13 @@ class Huddle extends React.Component {
 
   render(){
     const huddle = this.props.huddle ? this.props.huddle : {};
-    const group = this.props.group ? this.props.group : {};
+    const group = this.props.huddle.group ? this.props.huddle.group : {};
+    const groupId = this.props.huddle.group ? this.props.huddle.group.id : "";
+    const members = this.props.huddle.group ? this.props.huddle.group.members.length : "";
+    const groupHuddles = this.props.huddle.group ? this.props.huddle.group.huddles_count : "";
+    const groupOrganizerImage = this.props.huddle.group ? this.props.huddle.group.moderator.image : "";
+    const groupOrganizerName = this.props.huddle.group ? this.props.huddle.group.moderator.name : "";
+
     return(
       <div>
         <div className="group-header">
@@ -52,7 +58,7 @@ class Huddle extends React.Component {
               <li><a href="#">More</a></li>
             </ul>
             <ul>
-              <a className="group-header-join-btn" href="#">Join us!</a>
+              <Link to={`/groups/${groupId}`} className="group-header-join-btn">Join us!</Link>
             </ul>
           </nav>
         </div>
@@ -61,12 +67,12 @@ class Huddle extends React.Component {
           <div className="group-info">
             <div className="image">Group logo</div>
             <h3 className="location">Location</h3>
-            <p className="num-huddles">Num of Members</p>
-            <p className="num-members">Upcoming Huddles:</p>
+            <p className="num-huddles">Members: {members}</p>
+            <p className="num-members">Upcoming Huddles: {groupHuddles}</p>
             <h3 className="organizer">Organizer:</h3>
             <div className="organizer-container">
-              <img/>
-              <h4></h4>
+              <img src={groupOrganizerImage}/>
+              <h4>{groupOrganizerName}</h4>
             </div>
 
           </div>
