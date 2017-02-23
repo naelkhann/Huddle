@@ -39,6 +39,7 @@ class Group extends React.Component {
     };
     this.toggleNav = this.toggleNav.bind(this);
     this.joinGroupToggle = this.joinGroupToggle.bind(this);
+
   }
 
   componentDidMount(){
@@ -53,10 +54,10 @@ class Group extends React.Component {
     e.preventDefault();
     if(this.props.userId){
       if(this.props.isMember){
-        this.props.deleteGroupsUser(this.props.group.id).then(res => console.log(res));
+        this.props.deleteGroupsUser(this.props.group.id).then(() => this.props.getGroup(this.props.params.groupId));
       } else {
         const membership = {group_id: this.props.group.id, user_id: this.props.userId};
-        this.props.createGroupsUser(membership).then(res => console.log(res));
+        this.props.createGroupsUser(membership).then(() => this.props.getGroup(this.props.params.groupId));
       }
     } else {
       this.props.router.push('/register');
@@ -66,6 +67,29 @@ class Group extends React.Component {
   getDaysTilHuddle(day){
     const dayInMs = 1000*60*60*24;
     return Math.ceil((new Date(day).getTime() - new Date().getTime())/(dayInMs));
+  }
+
+  renderGroupDescription(){
+    if(this.props.route.path === "groups/:groupId") {
+      return (
+      <div className="group-description-container">
+        <h4 className="description">{this.props.group.description}</h4>
+
+        <ul className="huddles-nav">
+          <li onClick={this.toggleNav}
+            className={this.state.active_li === "Upcoming" ? "active" : "disabled"}>
+            Upcoming
+          </li>
+          <li onClick={this.toggleNav}
+            className={this.state.active_li === "Past" ? "active" : "disabled"}>
+            Past
+          </li>
+        </ul>
+
+        {this.renderHuddles()}
+      </div>
+      );
+    }
   }
 
   renderHuddles(){
@@ -95,6 +119,7 @@ class Group extends React.Component {
     const numMembers = this.props.group.members ? this.props.group.members.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
+
     return(
       <div>
         <div className="group-header">
@@ -110,7 +135,7 @@ class Group extends React.Component {
               <li><a href="#">More</a></li>
             </ul>
             <ul>
-              <button className="group-header-join-btn" onClick={this.joinGroupToggle}>{this.props.isMember ? "Already" : "Join Us"}</button>
+              <button className="group-header-join-btn" onClick={this.joinGroupToggle}>{this.props.isMember ? "Leave Group" : "Join Us"}</button>
             </ul>
           </nav>
         </div>
@@ -129,22 +154,7 @@ class Group extends React.Component {
 
           </div>
 
-          <div className="group-description-container">
-            <h4 className="description">{this.props.group.description}</h4>
-
-            <ul className="huddles-nav">
-              <li onClick={this.toggleNav}
-                className={this.state.active_li === "Upcoming" ? "active" : "disabled"}>
-                Upcoming
-              </li>
-              <li onClick={this.toggleNav}
-                className={this.state.active_li === "Past" ? "active" : "disabled"}>
-                Past
-              </li>
-            </ul>
-
-            {this.renderHuddles()}
-          </div>
+          {this.renderGroupDescription()}
         </div>
       </div>
     );
