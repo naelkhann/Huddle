@@ -1,7 +1,8 @@
-export const getGroups = () => {
+export const getGroups = (filter) => {
   return $.ajax({
     method: 'GET',
-    url: `api/groups`
+    url: `api/groups`,
+    data: { filter }
   });
 };
 

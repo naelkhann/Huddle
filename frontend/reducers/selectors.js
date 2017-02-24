@@ -4,6 +4,8 @@ export const arrayOfCategories = ({categories}) => values(categories);
 
 export const arrayOfHuddles = ({group}) => values(group.huddles);
 
+export const arrayOfGroups = ({groups}) => values(groups);
+
 export const arrayOfMembers = ({huddle}) => values(huddle.members);
 
 export const getCategoriesNames = ({categories}) => {

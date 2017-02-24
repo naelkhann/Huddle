@@ -1,7 +1,7 @@
 class Api::GroupsController < ApplicationController
   def create
     @group = current_user.moderated_groups.new(group_params)
-    debugger
+    
     if @group.save
       render "api/groups/show"
     else
@@ -20,7 +20,12 @@ class Api::GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
+    search = params[:filter]
+    if search
+      @groups = Group.where("LOWER(name) LIKE ?", "#{search.downcase}%")
+    else
+      @groups = Group.all
+    end
   end
 
   private

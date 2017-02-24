@@ -9,7 +9,6 @@ const App = (props) => (
       <nav className="navbar">
         <div className="navbar-buttons-container">
           <Link className="navbar-button" to="/groups/new">Start a Group</Link>
-          <a className="navbar-button" href="#">New App</a>
         </div>
         <div className="navbar-logo-container">
           <a href="#"><img className="navbar-logo" src={window.logo} alt="Huddle" /></a>

@@ -25,8 +25,8 @@ const removeGroup = (group) => ({
   group
 });
 
-export const getGroups = () => dispatch => (
-  GroupAPIUtil.getGroups().then(
+export const getGroups = (filter) => dispatch => (
+  GroupAPIUtil.getGroups(filter).then(
     groups => dispatch(receiveGroups(groups))
   )
 );

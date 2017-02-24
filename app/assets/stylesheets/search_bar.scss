@@ -1,0 +1,42 @@
+@import "variables";
+@import "button";
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  width: 800px;
+  margin: -20px auto 0 auto;
+  padding: 15px;
+  .left {
+    .search-bar {
+      position: relative;
+      width: 300px;
+      height: 35px;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      font-size: 20px;
+      font-family: $meetup-font;
+      font-weight: normal;
+    }
+    i {
+      position: absolute;
+      color: #000;
+      z-index: 1;
+      margin-left: -30px;
+      margin-top: 10px;
+      background-color:white;
+    }
+  }
+  .right {
+    button {
+      background-color: black;
+      border: 1px solid #aaa;
+      border-radius: 2px;
+      color: #aaa;
+      font-size: 18px;
+      padding: 10px;
+    }
+  }
+}

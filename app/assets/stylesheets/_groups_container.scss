@@ -1,0 +1,19 @@
+@mixin groups-container {
+  max-width: 1110px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+@mixin groups-container-small {
+  max-width: 1110px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}

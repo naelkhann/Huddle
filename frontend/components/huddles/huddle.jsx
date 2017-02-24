@@ -42,7 +42,7 @@ class Huddle extends React.Component {
     const groupHuddles = this.props.huddle.group ? this.props.huddle.group.huddles_count : "";
     const groupOrganizerImage = this.props.huddle.group ? this.props.huddle.group.moderator.image : "";
     const groupOrganizerName = this.props.huddle.group ? this.props.huddle.group.moderator.name : "";
-
+  
     return(
       <div className="huddle-main-container">
         <div className="huddle-container">

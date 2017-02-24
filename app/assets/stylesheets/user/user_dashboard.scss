@@ -1,0 +1,28 @@
+@import '../button';
+@import '../variables';
+@import '../groups_container';
+
+.dashboard-cover {
+  height: 225px;
+  background-color: $meetup-red;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  .dashboard-cover-title {
+    font-size: 40px;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+  }
+}
+
+.dashboard-groups-container {
+  @include groups-container;
+
+}
+
+@media screen and (max-width: 1125px){
+  .dashboard-groups-container {
+    @include groups-container-small;
+  }
+}
