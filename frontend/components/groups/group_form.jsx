@@ -21,6 +21,7 @@ class GroupForm extends React.Component {
     this.state = {
       name: "",
       description: "",
+      location: "",
       category_ids: []
     };
     this.changeCategoriesState = this.changeCategoriesState.bind(this);
@@ -68,6 +69,11 @@ class GroupForm extends React.Component {
           <input type="text" value={this.state.name} onChange={this.updateProperty("name")} />
         </label>
         <br /><br />
+        <label className="group-form-labels">Group Location:
+          <br />
+          <input type="text" placeholder="Cities Only Please" value={this.state.location} onChange={this.updateProperty("location")} />
+        </label>
+        <br /><br />
         <label className="group-form-labels">Group Description:
           <br />
           <textarea value={this.state.description} onChange={this.updateProperty("description")} />
@@ -101,6 +107,8 @@ class GroupForm extends React.Component {
     const group = {
       name: this.state.name,
       description: this.state.description,
+      location: this.state.location,
+      image: "group.png",
       category_ids: this.state.category_ids
     };
     this.props.createGroup(group).then(

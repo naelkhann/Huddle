@@ -5,6 +5,9 @@ json.moderator do
   json.image asset_path(group.moderator.image.url)
 end
 
+json.image asset_path(group.image)
+json.location group.location
+json.founded_on group.founded_on.strftime('%b %d %Y')
 json.members group.members, :id, :name
 
 member_ids = group.members.map { |e| e.id  }

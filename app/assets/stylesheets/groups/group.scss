@@ -73,10 +73,14 @@
     box-sizing: content-box;
     padding: 5px;
     .image {
-      display: block;
       width: 200px;
       height: 100px;
-      border: 1px solid black;
+      object-fit: cover;
+    }
+    .founded_on {
+      font-weight: normal;
+      font-size: 12px;
+      @include group-info-children-pad;
     }
     .location {
       font-weight: normal;

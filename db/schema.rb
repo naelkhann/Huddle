@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222141243) do
+ActiveRecord::Schema.define(version: 20170224141048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,11 +34,14 @@ ActiveRecord::Schema.define(version: 20170222141243) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.text     "description",  null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name",                                         null: false
+    t.text     "description",                                  null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "moderator_id"
+    t.string   "image",        default: "group.png"
+    t.string   "location",     default: "New York, NY",        null: false
+    t.datetime "founded_on",   default: '2017-02-24 14:21:10', null: false
     t.index ["name"], name: "index_groups_on_name", unique: true, using: :btree
   end
 

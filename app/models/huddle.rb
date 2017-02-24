@@ -21,7 +21,6 @@ class Huddle < ApplicationRecord
   belongs_to :group
 
   has_many :huddles_users
-
   has_many :members,
     through: :huddles_users,
     source: :user

@@ -118,6 +118,8 @@ class Group extends React.Component {
 
   render(){
     const numHuddles = this.props.huddles ? this.props.huddles.length : "";
+    const location = this.props.group.location ? this.props.group.location : "";
+    const founded_on = this.props.group.founded_on ? this.props.group.founded_on : "";
     const numMembers = this.props.group.members ? this.props.group.members.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
@@ -144,8 +146,9 @@ class Group extends React.Component {
 
         <div className="group-information-container">
           <div className="group-info">
-            <div className="image">Group logo</div>
-            <h3 className="location">Location</h3>
+            <img className="image" src={this.props.group.image} />
+            <h3 className="location">{location}</h3>
+            <h3 className="founded_on">Founded On: {founded_on}</h3>
             <p className="num-huddles">Members: {numMembers}</p>
             <p className="num-members">Upcoming Huddles: {numHuddles}</p>
             <h3 className="organizer">Organizer:</h3>

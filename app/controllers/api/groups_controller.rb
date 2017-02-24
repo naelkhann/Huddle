@@ -1,7 +1,7 @@
 class Api::GroupsController < ApplicationController
   def create
     @group = current_user.moderated_groups.new(group_params)
-    
+
     if @group.save
       render "api/groups/show"
     else
@@ -30,6 +30,6 @@ class Api::GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :description, :moderator_id, category_ids: [])
+    params.require(:group).permit(:name, :description, :moderator_id, :location, :image, category_ids: [])
   end
 end

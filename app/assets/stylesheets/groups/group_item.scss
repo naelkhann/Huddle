@@ -10,14 +10,28 @@
   position: relative;
   max-width: 350px;
   height: 200px;
-  border: 1px solid $meetup-red;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  .group-item-img {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+  }
 }
 
 .group-item-name {
+  position: absolute;
+  bottom: 20px;
+  left: 2%;
+  text-decoration: none;
+  color: black;
+  font-size: 21px;
+}
+
+.group-item-number {
   position: absolute;
   bottom: 0;
   left: 2%;
   text-decoration: none;
   color: black;
-  font-size: 21px;
+  font-size: 19px;
 }
