@@ -156,6 +156,7 @@ class Group extends React.Component {
               <img src={organizerImage}/>
               <h4>{organizerName}</h4>
             </div>
+            <Link to={`groups/${this.props.group.id}/huddles/new`} className="create-huddle-btn">Create A Huddle</Link>
           </div>
 
           {this.renderGroupDescription()}

@@ -101,6 +101,7 @@
     .organizer-container {
       display: flex;
       align-items: center;
+      margin-bottom: 10px;
       @include group-info-children-pad;
       img {
         width: 30px;

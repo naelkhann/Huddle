@@ -1,25 +1,14 @@
 @import '../variables';
 @import '../button';
 
-.huddle-form-wrapper {
+.huddle-form-main-container {
   display: flex;
-  flex-direction: column;
-  .huddle-form-cover {
-    height: 200px;
-    background-color: pink;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    h1, h2 {
-      display: block;
-      padding: 10px 0;
-      font-weight: normal;
-      color: white;
-    }
-    a {
-      @include meetup-button;
-      @include red-button;
-    }
+  margin-left: 10px;
+  .huddle-form-container {
+    width: 575px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: content-box;
+    padding: 10px;
   }
 }

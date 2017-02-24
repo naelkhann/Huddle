@@ -50,19 +50,11 @@ class HuddleForm extends React.Component {
   render(){
     return(
       <div className="huddle-form-wrapper">
-        {this.props.currentUser ?
-          this.renderForUser() :
-          this.renderForNullUser()}
-
-        <form>
-          <label>Which category does your Huddle belong to?
-            <select>
-              {this.props.categories.map((category, idx) => (
-                <option key={idx} value={category.id}>{category.name}</option>
-              ))}
-            </select>
-          </label>
-        </form>
+        <div className="huddle-form-main-container">
+          <div className="huddle-form-container">
+              <h1>Inner</h1>
+          </div>
+        </div>
       </div>
     );
   }
