@@ -5,7 +5,8 @@ import { getCategories, getCategory } from '../../actions/categories_actions';
 import { arrayOfCategories } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => ({
-  categories: arrayOfCategories(state)
+  categories: arrayOfCategories(state),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -15,6 +16,14 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 class CategoriesIndex extends React.Component {
   componentDidMount(){
     this.props.getCategories();
+  }
+
+  renderSignUpOnCover(){
+    if(!this.props.currentUser){
+      return(
+        <Link to="/register" className="categories-video-cover-btn">Sign Up</Link>
+      );
+    }
   }
 
   render(){
@@ -34,7 +43,7 @@ class CategoriesIndex extends React.Component {
       <div>
         <div className="categories-video-cover">
           <h1>Find others who love what you love.</h1>
-          <Link to="/register" className="categories-video-cover-btn">Sign Up</Link>
+          {this.renderSignUpOnCover()}
         </div>
         <div className="categories-video-container">
           <video autoPlay loop muted width="100%" poster="https://s3.amazonaws.com/huddle-application-dev/static_video/videoposter.png">

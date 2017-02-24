@@ -36,9 +36,10 @@ const Root = ({store}) => {
           <IndexRoute component={ CategoriesIndex } />
           <Route path="categories/:categoryId" component={ Category } />
           <Route path="groups/new" component={ GroupForm } />
-          <Route path="groups/:groupId" component={ Group } />
+          <Route path="groups/:groupId" component={ Group }>
+            <Route path="huddles/:huddleId" component={ Huddle } />
+          </Route>
           <Route path="huddles/new" component={ HuddleForm } />
-          <Route path="huddles/:huddleId" component={ Huddle } />
           <Route path="/login" component={ SessionFormContainer } />
           <Route path="/register" component={ SessionFormContainer } />
           <Route path="/user" component={ UserDashboard } onEnter={_ensureLoggedIn} />

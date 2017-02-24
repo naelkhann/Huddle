@@ -70,7 +70,7 @@ class Group extends React.Component {
   }
 
   renderGroupDescription(){
-    if(this.props.route.path === "groups/:groupId") {
+    if(!this.props.children) {
       return (
       <div className="group-description-container">
         <h4 className="description">{this.props.group.description}</h4>
@@ -89,6 +89,8 @@ class Group extends React.Component {
         {this.renderHuddles()}
       </div>
       );
+    } else {
+      return this.props.children;
     }
   }
 
@@ -106,7 +108,7 @@ class Group extends React.Component {
             <h3 className="huddle-date">{huddle.day}</h3>
             <h3 className="huddle-time">{huddle.time}</h3>
             <h3 className="huddle-time">{`${this.getDaysTilHuddle(huddle.date)} days left`}</h3>
-            <Link to={`huddles/${huddle.id}`}>RSVP</Link>
+            <Link to={`/groups/${this.props.group.id}/huddles/${huddle.id}`}>RSVP</Link>
           </div>
         </div>
       </div>
