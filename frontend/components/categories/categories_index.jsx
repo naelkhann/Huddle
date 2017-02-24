@@ -29,13 +29,13 @@ class CategoriesIndex extends React.Component {
   render(){
     const categoriesNames = this.props.categories.map((cat, idx) => (
       <div key={idx} className="category-container">
+        <Link to={`/categories/${cat.id}`} className="categories-link">
         <div className="category-image-container">
           <img className="image" src={cat.thumb} />
         </div>
+        </Link>
         <h3 className="categories-names">
-          <Link to={`/categories/${cat.id}`} className="categories-link">
             {cat.name}
-          </Link>
         </h3>
       </div>
     ));

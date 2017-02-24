@@ -67,10 +67,13 @@ $uniform-width: 70%;
 
 .categories-names {
   font-size: 22px;
+  text-decoration: none;
+  color: black;
 }
 .categories-link {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .categories-video-cover {
