@@ -45,7 +45,7 @@ export const getGroup = group => dispatch => {
   dispatch(startLoading());
   return GroupAPIUtil.getGroup(group).then(
     res => dispatch(receiveGroup(res))).then(
-      () => (setTimeout(() => dispatch(stopLoading()), 500)));
+      () => (setTimeout(() => dispatch(stopLoading()), 1000)));
 };
 
 export const createGroup = group => dispatch => (
