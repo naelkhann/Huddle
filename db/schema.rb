@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170224141048) do
     t.integer  "moderator_id"
     t.string   "image",        default: "group.png"
     t.string   "location",     default: "New York, NY",        null: false
-    t.datetime "founded_on",   default: '2017-02-24 14:21:10', null: false
+    t.datetime "founded_on",   default: '2017-03-15 17:09:03', null: false
     t.index ["name"], name: "index_groups_on_name", unique: true, using: :btree
   end
 

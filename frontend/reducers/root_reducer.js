@@ -5,6 +5,7 @@ import CategoryReducer from './category_reducer';
 import GroupReducer from './group_reducer';
 import GroupsReducer from './groups_reducer';
 import HuddleReducer from './huddle_reducer';
+import LoadingReducer from './loading_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -13,6 +14,7 @@ const RootReducer = combineReducers({
   groups: GroupsReducer,
   group: GroupReducer,
   huddle: HuddleReducer,
+  loading: LoadingReducer
 });
 
 export default RootReducer;

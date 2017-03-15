@@ -61,6 +61,7 @@ smashbros = Group.create(
   description: "All things Super Smash Bros. related! Join tournaments and socialize with other players. Monthly tournaments happening! We embrace players of all skill levels",
   location: "New York, NY",
   founded_on: DateTime.parse('03 Feb 2017'),
+  image: "smash_group.png",
   moderator_id: guest.id)
 
 gourmet = Group.create(
@@ -68,6 +69,7 @@ gourmet = Group.create(
   description: "Are you a foodie? Join our group and meet others who love trying new restaurants and recipes, and love all things food!",
   location: "Murray Hill, NY",
   founded_on: DateTime.parse('03 Feb 2017'),
+  image: "gourmet_group.png",
   moderator_id: chim4ira312.id)
 
 android = Group.create(
