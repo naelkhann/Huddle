@@ -4,12 +4,14 @@ import { getGroup } from '../../actions/groups_actions';
 import { createGroupsUser, deleteGroupsUser } from '../../actions/groups_users_actions';
 import { arrayOfHuddles } from '../../reducers/selectors';
 import { Link, withRouter } from 'react-router';
+import LoadingIcon from '../loading_icon';
 
 const mapStateToProps = (state, ownProps) => {
   let isMember;
   let userId;
   const group = state.group;
   const huddles = arrayOfHuddles(state);
+  const loading = state.loading.loading;
   if(state.session.currentUser){
     userId = state.session.currentUser.id;
     isMember = group.is_user_a_member;
@@ -21,7 +23,8 @@ const mapStateToProps = (state, ownProps) => {
     group,
     huddles,
     userId,
-    isMember
+    isMember,
+    loading
   };
 };
 
@@ -123,8 +126,9 @@ class Group extends React.Component {
     const numMembers = this.props.group.members ? this.props.group.members.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
-
-    return(
+    
+    return this.props.loading ? <LoadingIcon /> :
+      (
       <div>
         <div className="group-header">
           <div className="group-header-name-container">
