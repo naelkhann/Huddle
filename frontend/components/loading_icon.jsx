@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingIcon = () => (
   <div className="loader">
-    <svg width='200px' height='200px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-balls"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><g transform="rotate(0 50 50)">
+    <svg width='200px' height='200px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" className="uil-balls"><rect x="0" y="0" width="100" height="100" fill="none" className="bk"></rect><g transform="rotate(0 50 50)">
       <circle r="5" cx="30" cy="50">
         <animateTransform attributeName="transform" type="translate" begin="0s" repeatCount="indefinite" dur="1s" values="0 0;19.999999999999996 -20" keyTimes="0;1"/>
         <animate attributeName="fill" dur="1s" begin="0s" repeatCount="indefinite"  keyTimes="0;1" values="#c5523f;#f2b736"/>

@@ -42,7 +42,7 @@ class Huddle extends React.Component {
     const groupHuddles = this.props.huddle.group ? this.props.huddle.group.huddles_count : "";
     const groupOrganizerImage = this.props.huddle.group ? this.props.huddle.group.moderator.image : "";
     const groupOrganizerName = this.props.huddle.group ? this.props.huddle.group.moderator.name : "";
-  
+    const locationForMap = this.props.huddle ? this.props.huddle.location.split(" ").join("+") : "";
     return(
       <div className="huddle-main-container">
         <div className="huddle-container">
@@ -59,6 +59,14 @@ class Huddle extends React.Component {
             <div className="location-inner">
               <h2 className="location">{huddle.location}</h2>
             </div>
+          </div>
+
+          <div className="location-map">
+            <iframe width="500px"
+              height="200px" frameBorder="0"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBHSs5p1AoablGxtk1aJxuT-XgtBXmovTM&q=54+W+21st+St,+New+York,+NY+10010"
+              allowFullScreen>
+            </iframe>
           </div>
 
           <h3 className="description">{huddle.description}</h3>

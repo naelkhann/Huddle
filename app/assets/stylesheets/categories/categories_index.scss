@@ -101,18 +101,25 @@ $uniform-width: 70%;
 
 .categories-video-container {
   position: absolute;
-  bottom: 43%;
+  top: -400px;
   right: 0%;
   z-index: -10;
 }
 
-@media screen and (max-width: 1378px) {
+@media screen and (max-width: 1500px) {
   .categories-video-container {
-    bottom: 49%;
+    top: -250px;
   }
 }
 
-@media screen and (max-width: 860px) {
+
+@media screen and (max-width: 1249px) {
+  .categories-video-container {
+    top: -150px;
+  }
+}
+
+@media screen and (max-width: 1074px) {
   .categories-video-container {
     video {
       display: none;
