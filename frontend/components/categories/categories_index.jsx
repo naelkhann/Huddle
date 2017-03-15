@@ -23,6 +23,10 @@ class CategoriesIndex extends React.Component {
       return(
         <Link to="/register" className="categories-video-cover-btn">Sign Up</Link>
       );
+    } else {
+      return(
+        <Link to="/user" className="categories-video-cover-btn">Search for A Huddle</Link>
+      );
     }
   }
 
