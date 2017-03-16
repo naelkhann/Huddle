@@ -185,7 +185,7 @@ watchers1 = Huddle.create(
   title: "Disney Movies Night",
   group_id: watchers.id,
   description: "We've rented out two halls in the AMC Kips Bay theatre in Manhattan to have Disney night! Bring friends and family to view some of the Disney classics. This is perfect for any of the younger ones in your family that have never seen the great classic films! Feel free to bring any Disney gear and wear costumes! If you can make any snacks or desserts in theme, please let me know via comment or by messaging me directly. Hope to see huddle up soon!",
-  date: DateTime.parse('28 Feb 2017 18:30:00'),
+  date: DateTime.parse('25 Mar 2017 18:30:00'),
   location: "570 2nd Ave, New York, NY 10016",
   founded_on: Date.new(2017, 1, 12),
   moderator_id: chim4ira312.id
@@ -195,7 +195,7 @@ smash2 = Huddle.create(
   title: "Smash Classes",
   group_id: smashbros.id,
   description: "Hey Super Smash Bros player, are you interested in getting better at your favorite game? We hold classes every month to go over player strategies, focus on moves and tactics on a professional level, and help you master your facvorite character! Join now - we have free pizza and drinks at every huddle meeting",
-  date: DateTime.parse('15 Mar 2017 17:30:00'),
+  date: DateTime.parse('30 Mar 2017 17:30:00'),
   location: "10 Rockefeller Plaza, New York, NY 10020",
   founded_on: Date.new(2017, 2, 12),
   moderator_id: mega0319.id
@@ -204,7 +204,7 @@ picnic1 = Huddle.create(
   title: "February Picnic Huddle",
   group_id: picnic.id,
   description: "Hey families! We're having our monthly picnic indoors at Michelle Parson's rooftop. She is generously donating her building's public space for us to all gather. This week's theme will be Mexican! Try to dress in traditional Mexican garb, and please let me know via email or Huddle message about what food(s) you will be bringing. We will have dancing, Mexican/Latino music, and play some traditional Mexican family games. Get excited!",
-  date: DateTime.parse('28 Feb 2017 13:30:00'),
+  date: DateTime.parse('28 Mar 2017 13:30:00'),
   location: "160 W 24th St, New York, NY 10011",
   founded_on: Date.new(2017, 1, 12),
   moderator_id: mega0319.id
@@ -231,7 +231,7 @@ calc_tutors1 = Huddle.create(
   title: "Calc Study Session",
   group_id: calc_tutors.id,
   description: "Join us for a Calculus study session @ Starbucks. Feel free to bring your laptops and books, and have plenty of questions on hand to get answered. This is a great time for you to get together with peers in the same mindset and get and idea of the different concepts you might be struggling with at the moment. Take away great knowledge to help you on your course or personal calculus problems! We will have some tutors and members on deck to make sure we have people on hand to answer questions",
-  date: DateTime.parse('2 March 2017 14:30:00'),
+  date: DateTime.parse('19 Mar 2017 14:30:00'),
   location: "New York, NY",
   founded_on: Date.new(2017, 2, 24),
   moderator_id: guest.id
@@ -249,7 +249,7 @@ bayern1 = Huddle.create(
   title: "Bayern vs Hamburg",
   group_id: bayern.id,
   description: "Come watch the Bayern vs Hamburger SV match on Feb. 25th! We will be watching at the Bier Garten in Manhattan. Don't forget to dress in that Bayern gear. No fee to get in, just buy your own drinks and food if you'd like!",
-  date: DateTime.parse('25 Feb 2017 14:30:00'),
+  date: DateTime.parse('21 Mar 2017 14:30:00'),
   location: "New York, NY",
   founded_on: Date.new(2017, 2, 24),
   moderator_id: meag.id
