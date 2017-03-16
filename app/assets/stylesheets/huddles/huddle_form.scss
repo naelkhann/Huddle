@@ -4,11 +4,29 @@
 .huddle-form-main-container {
   display: flex;
   margin-left: 10px;
+  font-family: $meetup-font;
   .huddle-form-container {
-    width: 575px;
+    width: 710px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: content-box;
     padding: 10px;
+    .huddle-form-labels{
+      font-size: 20px;
+      font-weight: bold;
+      textarea {
+        width: 500px;
+        height: 275px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        font-size: 16px;
+        font-family: sans-serif;
+        font-weight: normal;
+      }
+    }
+    .huddle-form-submit-btn {
+      @include meetup-button;
+      @include red-button;
+    }
   }
 }

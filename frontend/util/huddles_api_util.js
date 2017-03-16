@@ -5,11 +5,11 @@ export const getHuddle = (id) => {
   });
 };
 
-export const createHuddle = (huddle) => {
+export const createHuddle = (obj) => {
   return $.ajax({
     method: 'POST',
     url: `api/huddles`,
-    data: huddle
+    data: { huddle: obj }
   });
 };
 

@@ -19,12 +19,11 @@ export const getHuddle = (id) => dispatch => (
 );
 
 export const createHuddle = (huddle) => dispatch => (
-  HuddleAPIUtil.createHuddle(huddle).then(
-    huddleObj => dispatch(receiveHuddle(huddleObj)))
+  HuddlesAPIUtil.createHuddle(huddle)
 );
 
 export const deleteHuddle = (id) => dispatch => (
-  HuddleAPIUtil.deleteHuddle(id).then(
+  HuddlesAPIUtil.deleteHuddle(id).then(
     res => dispatch(removeHuddle())
   )
 );
