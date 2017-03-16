@@ -24,10 +24,10 @@ const App = (props) => (
 
     <div className="footer">
       <ul className="list">
-        <li><a href="#">Home</a></li>
-        <li><a href="http://www.naelkhan.com">About Me</a></li>
-        <li><a href="http://github.com/naelkhann">Github</a></li>
-        <li><a href="http://www.linkedin.com/in/naelkhann">LinkedIn</a></li>
+        <li><a href="#"><i className="fa fa-home fa-2x"></i></a></li>
+        <li><a href="http://www.naelkhan.com"><i className="fa fa-user fa-2x"></i></a></li>
+        <li><a href="http://github.com/naelkhann"><i className="fa fa-github fa-2x"></i></a></li>
+        <li><a href="http://www.linkedin.com/in/naelkhann"><i className="fa fa-linkedin fa-2x"></i></a></li>
       </ul>
     </div>
   </div>
