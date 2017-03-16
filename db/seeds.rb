@@ -204,7 +204,7 @@ picnic1 = Huddle.create(
   title: "February Picnic Huddle",
   group_id: picnic.id,
   description: "Hey families! We're having our monthly picnic indoors at Michelle Parson's rooftop. She is generously donating her building's public space for us to all gather. This week's theme will be Mexican! Try to dress in traditional Mexican garb, and please let me know via email or Huddle message about what food(s) you will be bringing. We will have dancing, Mexican/Latino music, and play some traditional Mexican family games. Get excited!",
-  date: DateTime.parse('28 Mar 2017 13:30:00'),
+  date: DateTime.parse('16 Feb 2017 13:30:00'),
   location: "160 W 24th St, New York, NY 10011",
   founded_on: Date.new(2017, 1, 12),
   moderator_id: mega0319.id
