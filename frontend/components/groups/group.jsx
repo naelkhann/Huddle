@@ -9,21 +9,25 @@ import LoadingIcon from '../loading_icon';
 const mapStateToProps = (state, ownProps) => {
   let isMember;
   let userId;
+  let isModerator;
   const group = state.group;
   const huddles = arrayOfHuddles(state);
   const loading = state.loading.loading;
   if(state.session.currentUser){
     userId = state.session.currentUser.id;
     isMember = group.is_user_a_member;
+    isModerator = group.is_user_a_moderator;
   } else {
     userId = null;
     isMember = null;
+    isModerator = null;
   }
   return {
     group,
     huddles,
     userId,
     isMember,
+    isModerator,
     loading
   };
 };
@@ -70,6 +74,14 @@ class Group extends React.Component {
   getDaysTilHuddle(day){
     const dayInMs = 1000*60*60*24;
     return Math.ceil((new Date(day).getTime() - new Date().getTime())/(dayInMs));
+  }
+
+  renderCreatHuddleBtn(){
+    if(this.props.isModerator){
+      return (
+        <Link to={`groups/${this.props.group.id}/huddles/new`} className="create-huddle-btn">Create A Huddle</Link>
+      );
+    }
   }
 
   renderGroupDescription(){
@@ -126,7 +138,7 @@ class Group extends React.Component {
     const numMembers = this.props.group.members ? this.props.group.members.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
-    
+
     return this.props.loading ? <LoadingIcon /> :
       (
       <div>
@@ -160,7 +172,7 @@ class Group extends React.Component {
               <img src={organizerImage}/>
               <h4>{organizerName}</h4>
             </div>
-            <Link to={`groups/${this.props.group.id}/huddles/new`} className="create-huddle-btn">Create A Huddle</Link>
+            {this.renderCreatHuddleBtn()}
           </div>
 
           {this.renderGroupDescription()}

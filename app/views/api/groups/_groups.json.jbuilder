@@ -14,6 +14,7 @@ member_ids = group.members.map { |e| e.id  }
 
 if current_user
   json.is_user_a_member member_ids.include? current_user.id
+  json.is_user_a_moderator group.moderator.id == current_user.id
 end
 
 if group.huddles.empty?
