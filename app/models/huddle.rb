@@ -8,7 +8,6 @@
 #  description  :text             not null
 #  date         :datetime         not null
 #  location     :string           not null
-#  founded_on   :date             not null
 #  moderator_id :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -16,7 +15,7 @@
 
 class Huddle < ApplicationRecord
   validates :title, :group_id, :description,
-            :date, :location, :founded_on, :moderator_id, presence: true
+            :date, :location, :moderator_id, presence: true
 
   belongs_to :group
 

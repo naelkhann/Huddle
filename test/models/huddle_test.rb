@@ -8,7 +8,6 @@
 #  description  :text             not null
 #  date         :datetime         not null
 #  location     :string           not null
-#  founded_on   :date             not null
 #  moderator_id :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

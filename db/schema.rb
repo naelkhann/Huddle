@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224141048) do
+ActiveRecord::Schema.define(version: 20170320183921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170224141048) do
     t.integer  "moderator_id"
     t.string   "image",        default: "group.png"
     t.string   "location",     default: "New York, NY",        null: false
-    t.datetime "founded_on",   default: '2017-03-15 17:09:03', null: false
+    t.datetime "founded_on",   default: '2017-02-27 15:49:06', null: false
     t.index ["name"], name: "index_groups_on_name", unique: true, using: :btree
   end
 
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20170224141048) do
     t.text     "description",  null: false
     t.datetime "date",         null: false
     t.string   "location",     null: false
-    t.date     "founded_on",   null: false
     t.integer  "moderator_id", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

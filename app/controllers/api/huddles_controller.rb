@@ -20,7 +20,7 @@ class Api::HuddlesController < ApplicationController
   end
 
   def huddle_params
-    params.require(:huddle).permit(:title, :group_id, 
-    :description, :date, :location, :founded_on, :moderator_id)
+    params.require(:huddle).permit(:title, :group_id,
+    :description, :date, :location, :moderator_id)
   end
 end

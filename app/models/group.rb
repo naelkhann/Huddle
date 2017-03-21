@@ -10,7 +10,7 @@
 #  moderator_id :integer
 #  image        :string           default("group.png")
 #  location     :string           default("New York, NY"), not null
-#  founded_on   :datetime         default("2017-02-24 14:21:10.308703"), not null
+#  founded_on   :datetime         default("2017-02-27 15:49:06.332389"), not null
 #
 
 class Group < ApplicationRecord

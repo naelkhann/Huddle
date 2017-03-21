@@ -30,7 +30,6 @@ else
         json.day huddle.date.strftime('%a, %b %e')
         json.time huddle.date.strftime('%I:%M %p')
         json.location huddle.location
-        json.founded_on huddle.founded_on
         json.moderator do
           json.id huddle.moderator.id
           json.name huddle.moderator.name
@@ -50,7 +49,6 @@ else
           json.day huddle.date.strftime('%a, %b %e')
           json.time huddle.date.strftime('%I:%M %p')
           json.location huddle.location
-          json.founded_on huddle.founded_on
           json.moderator do
             json.id huddle.moderator.id
             json.name huddle.moderator.name
@@ -71,7 +69,6 @@ else
           json.day huddle.date.strftime('%a, %b %e')
           json.time huddle.date.strftime('%I:%M %p')
           json.location huddle.location
-          json.founded_on huddle.founded_on
           json.moderator do
             json.id huddle.moderator.id
             json.name huddle.moderator.name

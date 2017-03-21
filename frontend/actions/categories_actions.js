@@ -31,5 +31,5 @@ export const getCategory = id => dispatch => {
   dispatch(startLoading());
 
   return APIUtil.getCategory(id).then(category => dispatch(receiveCategory(category))).then(
-    () => (setTimeout(() => dispatch(stopLoading()), 1000)));
+    () => (setTimeout(() => dispatch(stopLoading()), 500)));
 };
