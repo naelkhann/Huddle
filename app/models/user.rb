@@ -26,19 +26,19 @@ class User < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :huddles_users
-  has_many :rsvps,
+  has_many :rsvps, dependent: :destroy,
     through: :huddles_users,
     source: :huddle
 
   has_many :groups_users
-  has_many :memberships,
+  has_many :memberships, dependent: :destroy,
     through: :groups_users,
     source: :group
 
   has_many :moderated_groups,
     class_name: "Group",
     foreign_key: :moderator_id
-  
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

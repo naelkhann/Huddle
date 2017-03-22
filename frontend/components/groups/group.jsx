@@ -60,9 +60,13 @@ class Group extends React.Component {
   joinGroupToggle(e){
     e.preventDefault();
     if(this.props.userId){
-      if(this.props.isMember){
+      if(this.props.isModerator) {
+        alert("You cannot leave a group you moderate. Go to settings to delete a group");
+      }
+      else if(this.props.isMember){
         this.props.deleteGroupsUser(this.props.group.id).then(() => this.props.getGroup(this.props.params.groupId));
-      } else {
+      }
+      else {
         const membership = {group_id: this.props.group.id, user_id: this.props.userId};
         this.props.createGroupsUser(membership).then(() => this.props.getGroup(this.props.params.groupId));
       }

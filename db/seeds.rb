@@ -27,6 +27,7 @@ vegetarians = Group.create(
   location: "New York, NY",
   founded_on: DateTime.parse('03 Feb 2017'),
   moderator_id: guest.id)
+vegetarians.members << guest
 
 overwatchers = Group.create(
   name: "Overwatchers",
@@ -34,6 +35,7 @@ overwatchers = Group.create(
   location: "Flushing, NY",
   founded_on: DateTime.parse('03 Feb 2017'),
   moderator_id: mega0319.id)
+overwatchers.members << mega0319
 
 picnic = Group.create(
   name: "Picnic Baskets",
@@ -41,6 +43,7 @@ picnic = Group.create(
   location: "New York, NY",
   founded_on: DateTime.parse('21 Nov 2016'),
   moderator_id: mega0319.id)
+picnic.members << mega0319
 
 calc_tutors = Group.create(
   name: "1-800-Calculus",
@@ -48,6 +51,7 @@ calc_tutors = Group.create(
   location: "New York, NY",
   founded_on: DateTime.parse('1 Dec 2016'),
   moderator_id: guest.id)
+calc_tutors.members << guest
 
 watchers = Group.create(
   name: "Movie Buffs",
@@ -55,6 +59,7 @@ watchers = Group.create(
   location: "New York, NY",
   founded_on: DateTime.parse('03 Feb 2017'),
   moderator_id: chim4ira312.id)
+watchers.members << chim4ira312
 
 smashbros = Group.create(
   name: "Huddle Up Smash Bros!",
@@ -63,6 +68,7 @@ smashbros = Group.create(
   founded_on: DateTime.parse('03 Feb 2017'),
   image: "smash_group.png",
   moderator_id: guest.id)
+smashbros.members << guest
 
 gourmet = Group.create(
   name: "The Gourmet Gathering",
@@ -71,6 +77,7 @@ gourmet = Group.create(
   founded_on: DateTime.parse('03 Feb 2017'),
   image: "gourmet_group.png",
   moderator_id: chim4ira312.id)
+gourmet.members << chim4ira312
 
 android = Group.create(
   name: "Androids",
@@ -78,6 +85,7 @@ android = Group.create(
   location: "Williamsburg, NY",
   founded_on: DateTime.parse('03 Feb 2017'),
   moderator_id: mega0319.id)
+android.members << mega0319
 
 rockclimb = Group.create(
   name: "Rock Climbers Anonymous",
@@ -85,6 +93,7 @@ rockclimb = Group.create(
   location: "Westchester, NY",
   founded_on: DateTime.parse('03 Feb 2017'),
   moderator_id: chim4ira312.id)
+rockclimb.members << chim4ira312
 
 cityscaper = Group.create(
   name: "Cityscapers",
@@ -92,6 +101,7 @@ cityscaper = Group.create(
   location: "New York, NY",
   founded_on: DateTime.parse('4 Jan 2017'),
   moderator_id: chim4ira312.id)
+cityscaper.members << chim4ira312
 
 bayern = Group.create(
   name: "Bayern Fans",
@@ -99,6 +109,7 @@ bayern = Group.create(
   location: "New York, NY",
   founded_on: DateTime.parse('10 Jan 2017'),
   moderator_id: meag.id)
+bayern.members << meag
 
 #GroupsUsers
 picnic_guest1 = GroupsUser.create(group_id: picnic.id, user_id: chim4ira312.id)

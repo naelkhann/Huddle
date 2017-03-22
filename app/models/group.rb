@@ -31,4 +31,6 @@ class Group < ApplicationRecord
     class_name: "User",
     foreign_key: :moderator_id,
     primary_key: :id
+  
+
 end
