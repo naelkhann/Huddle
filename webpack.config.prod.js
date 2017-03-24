@@ -2,10 +2,9 @@ var path = require('path');
 var webpack = require("webpack");
 
 module.exports = {
-  context: __dirname,
   entry: "./frontend/huddle.jsx",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    path: './app/assets/javascripts',
     filename: 'bundle.js'
   },
   plugins:[
