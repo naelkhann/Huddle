@@ -1,0 +1,9 @@
+@import "variables";
+
+@mixin info-container {
+  margin-left: 15px;
+  width: 735px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: content-box;
+}

@@ -1,0 +1,28 @@
+@import "../info-container";
+@import "../variables";
+
+.group-members-container {
+  @include info-container;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  .group-members-title{
+    padding-bottom: 10px;
+    text-decoration: underline;
+  }
+  .group-member-item {
+    width: auto;
+    padding: 10px 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    h2 {
+      padding: 0 20px;
+    }
+  }
+}

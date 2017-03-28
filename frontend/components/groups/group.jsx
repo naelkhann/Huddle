@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getGroup } from '../../actions/groups_actions';
 import { createGroupsUser, deleteGroupsUser } from '../../actions/groups_users_actions';
-import { arrayOfHuddles, arrayOfUpcomingHuddles, arrayOfPastHuddles } from '../../reducers/selectors';
+import { arrayOfHuddles, arrayOfUpcomingHuddles, arrayOfPastHuddles, arrayOfGroupMembers } from '../../reducers/selectors';
 import { Link, withRouter } from 'react-router';
+import GroupMembers from './group_members';
 import LoadingIcon from '../loading_icon';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
   const huddles = arrayOfHuddles(state);
   const upcoming = arrayOfUpcomingHuddles(state);
   const past = arrayOfPastHuddles(state);
+  const groupMembers = arrayOfGroupMembers(state);
   const loading = state.loading.loading;
   if(state.session.currentUser){
     userId = state.session.currentUser.id;
@@ -26,6 +28,7 @@ const mapStateToProps = (state, ownProps) => {
   }
   return {
     group,
+    groupMembers,
     huddles,
     upcoming,
     past,
@@ -47,6 +50,7 @@ class Group extends React.Component {
     super(props);
     this.state = {
       active_li: "Upcoming",
+      active_notifications: false,
       notifications: []
     };
     this.toggleNav = this.toggleNav.bind(this);
@@ -66,9 +70,9 @@ class Group extends React.Component {
     e.preventDefault();
     if(this.props.userId){
       if(this.props.isModerator) {
-        this.setState({notifications: ["You are moderator, cannot leave group. Delete group via settings."]});
+        this.setState({active_notifications: true, notifications: ["You are the moderator, you cannot leave the group. Delete group via settings."]});
         setTimeout(() => {
-          this.setState({notifications: []})
+          this.setState({active_notifications: false, notifications: []})
         }, 3000)
       }
       else if(this.props.isMember){
@@ -92,7 +96,7 @@ class Group extends React.Component {
   renderNotification(){
     if (this.state.notifications.length){
       return (
-        <div className="notification-area">
+        <div className={this.state.active_notifications ? "notification-area-active" : "notification-area"}>
           <h3>{this.state.notifications}</h3>
         </div>
       )
@@ -197,7 +201,7 @@ class Group extends React.Component {
     const numHuddles = this.props.huddles ? this.props.huddles.length : "";
     const location = this.props.group.location ? this.props.group.location : "";
     const foundedOn = this.props.group.founded_on ? this.props.group.founded_on : "";
-    const numMembers = this.props.group.members ? this.props.group.members.length : "";
+    const numMembers = this.props.groupMembers ? this.props.groupMembers.length : "";
     const organizerImage = this.props.group.moderator ? this.props.group.moderator.image : "";
     const organizerName = this.props.group.moderator ? this.props.group.moderator.name : "";
 
@@ -211,9 +215,9 @@ class Group extends React.Component {
           </div>
           <nav className="group-header-nav">
             <ul>
-              <li className="active"><a href="#">Home</a></li>
-              <li><a href="#">Huddles</a></li>
-              <li><a href="#">Members</a></li>
+              <li className="active"><Link to={`/groups/${this.props.group.id}`}>Home</Link></li>
+              <li><Link to={`/groups/${this.props.group.id}`}>Huddles</Link></li>
+              <li><Link to ={`/groups/${this.props.group.id}/members`}>Members</Link></li>
               <li><a href="#">Photos</a></li>
               <li><a href="#">More</a></li>
             </ul>

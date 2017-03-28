@@ -6,6 +6,7 @@ import CategoriesIndex from './categories/categories_index';
 import Category from './categories/category';
 import Group from './groups/group';
 import GroupForm from './groups/group_form';
+import GroupMembers from './groups/group_members';
 import Huddle from './huddles/huddle';
 import HuddleForm from './huddles/huddle_form';
 import SessionFormContainer from './session/session_form_container';
@@ -37,6 +38,7 @@ const Root = ({store}) => {
           <Route path="categories/:categoryId" component={ Category } />
           <Route path="groups/new" component={ GroupForm } />
           <Route path="groups/:groupId" component={ Group }>
+            <Route path="members" component={ GroupMembers } />
             <Route path="huddles/new" component={ HuddleForm } />
             <Route path="huddles/:huddleId" component={ Huddle } />
           </Route>

@@ -34,6 +34,20 @@ class Huddle extends React.Component {
     return members;
   }
 
+  renderRSVP(huddle){
+    if(!huddle.past){
+      return (
+        <div>
+          <h2>Are you going?</h2>
+          <div className="huddle-members-btn-container">
+            <a className="huddle-members-btn" href="#">Yes</a>
+            <a className="huddle-members-btn" href="#">No</a>
+          </div>
+        </div>
+      )
+    }
+  }
+
   render(){
     const huddle = this.props.huddle ? this.props.huddle : {};
     const group = this.props.huddle.group ? this.props.huddle.group : {};
@@ -43,6 +57,7 @@ class Huddle extends React.Component {
     const groupOrganizerImage = this.props.huddle.group ? this.props.huddle.group.moderator.image : "";
     const groupOrganizerName = this.props.huddle.group ? this.props.huddle.group.moderator.name : "";
     const locationForMap = this.props.huddle.location ? this.props.huddle.location.split(" ").join("+") : "";
+    const huddlePast = this.props.huddle ? this.props.huddle.past : undefined;
     return(
       <div className="huddle-main-container">
         <div className="huddle-container">
@@ -73,13 +88,9 @@ class Huddle extends React.Component {
         </div>
 
         <div className="huddle-members-container">
-          <h2>Are you going?</h2>
-          <div className="huddle-members-btn-container">
-            <a className="huddle-members-btn" href="#">Yes</a>
-            <a className="huddle-members-btn" href="#">No</a>
-          </div>
+          {this.renderRSVP(huddle)}
           <div className="huddle-members-inner">
-            <h2>{huddle.num_members} going</h2>
+            <h2>{huddle.num_members} {huddle.past ? "went" : "going"}</h2>
           </div>
           {this.renderMembers()}
         </div>

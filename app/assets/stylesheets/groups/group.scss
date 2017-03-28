@@ -1,5 +1,7 @@
 @import "../variables";
 @import "../button";
+@import "../notifications";
+@import "../info-container";
 
 @mixin group-info-children-pad(){
   padding: 5px 5px 0 5px;
@@ -118,11 +120,7 @@
     }
   }
   .group-description-container {
-    margin-left: 15px;
-    width: 735px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: content-box;
+    @include info-container;
     .description {
       padding: 10px;
       font-size: 18px;

@@ -4,6 +4,7 @@ json.group do
 end
 json.day @huddle.date.strftime('%a, %b %e')
 json.time @huddle.date.strftime('%I:%M %p')
+json.past DateTime.now > @huddle.date
 json.num_members @huddle.members.length
 json.members do
   @huddle.members.each do |member|

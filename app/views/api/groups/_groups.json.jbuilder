@@ -8,9 +8,17 @@ end
 json.image asset_path(group.image)
 json.location group.location
 json.founded_on group.founded_on.strftime('%b %d %Y')
-json.members group.members, :id, :name
-member_ids = group.members.map { |e| e.id  }
+json.members do
+  group.members.each do |member|
+    json.set! member.id do
+      json.id member.id
+      json.name member.name
+      json.image asset_path member.image.url
+    end
+  end
+end
 
+member_ids = group.members.map { |e| e.id  }
 if current_user
   json.is_user_a_member member_ids.include? current_user.id
   json.is_user_a_moderator group.moderator.id == current_user.id
