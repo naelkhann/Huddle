@@ -1,7 +1,7 @@
 module.exports = {
-  entry: './frontend/huddle.jsx',
+  entry: __dirname + "/frontend/huddle.jsx",
   output: {
-    path: './app/assets/javascripts',
+    path: __dirname + "/app/assets/javascripts",
     filename: 'bundle.js'
   },
   module: {

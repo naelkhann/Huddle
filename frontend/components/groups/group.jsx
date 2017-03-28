@@ -46,7 +46,8 @@ class Group extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      active_li: "Upcoming"
+      active_li: "Upcoming",
+      notifications: []
     };
     this.toggleNav = this.toggleNav.bind(this);
     this.joinGroupToggle = this.joinGroupToggle.bind(this);
@@ -65,7 +66,10 @@ class Group extends React.Component {
     e.preventDefault();
     if(this.props.userId){
       if(this.props.isModerator) {
-        alert("You cannot leave a group you moderate. Go to settings to delete a group");
+        this.setState({notifications: ["You are moderator, cannot leave group. Delete group via settings."]});
+        setTimeout(() => {
+          this.setState({notifications: []})
+        }, 3000)
       }
       else if(this.props.isMember){
         this.props.deleteGroupsUser(this.props.group.id).then(
@@ -83,6 +87,18 @@ class Group extends React.Component {
   getDaysTilHuddle(day){
     const dayInMs = 1000*60*60*24;
     return Math.ceil((new Date(day).getTime() - new Date().getTime())/(dayInMs));
+  }
+
+  renderNotification(){
+    if (this.state.notifications.length){
+      return (
+        <div className="notification-area">
+          <h3>{this.state.notifications}</h3>
+        </div>
+      )
+    } else {
+      return undefined
+    }
   }
 
   renderCreatHuddleBtn(){
@@ -188,6 +204,7 @@ class Group extends React.Component {
     return this.props.loading ? <LoadingIcon /> :
       (
       <div>
+        {this.renderNotification()}
         <div className="group-header">
           <div className="group-header-name-container">
             <h1 className="group-header-name">{this.props.group.name}</h1>
