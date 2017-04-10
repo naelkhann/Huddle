@@ -106,3 +106,9 @@ renderHuddles(){
 Joining a Group is a fundamental task of the application. Join Groups that interest you. Essentially, Huddle creates a join table relationship between Groups and the currently logged in user when joining a group. This allows you to RSVP to Huddles, and will allow you to communicate with Group members.
 
 ![Huddle Join Example](https://github.com/naelkhann/Huddle/raw/master/public/huddle_join.gif "Huddle Join")
+
+
+## Future Updates
+**Currently In Progress** : User Profiles
+- Messaging
+- Google Calendar Synchronization
