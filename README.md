@@ -49,6 +49,8 @@ Huddle's API provides data to the frontend, which is a React + Redux implementat
 ### Authentication
 Huddle utilizes the `BCrypt` Ruby gem (a simple OpenBSD BCrypt) to provide a secure authentication system, hashing all passwords and creating a session token in browser cookies that holds log in information for a currently logged in user throughout the application until a log out.
 
+![Huddle Login Example](https://github.com/naelkhann/Huddle/raw/master/public/huddle_login.gif "Huddle Login")
+
 ### Search Groups
 Huddle utilizes a filter parameter when hitting the API's Groups controller `index` action. The filter parameter automatically returns a list of applicable Groups using a SQL WHERE selector with ActiveRecord - off loading search to the backend.
 
@@ -69,15 +71,38 @@ end
 ### Huddle Views
 Huddle's presentation layer incorporates Sass mixins for a uniform and consistent visual look throughout the site. Cards are used to display Groups & Categories, and Group pages offer a familiar layout, allowing you to view archived events as well as upcoming events. This creates a community and following around a Group and its Huddles.
 
-![Huddle View Example](https://github.com/naelkhann/Huddle/raw/master/public/huddle_view.gif "Huddle Search")
+![Huddle View Example](https://github.com/naelkhann/Huddle/raw/master/public/huddle_view.gif "Huddle View")
 
+Huddle takes advantage of Reacts component system to do lightning fast renders of information from the Redux store. Here's an example of a piece of the Group component, that handles the task of switching between Upcoming and Past (Archived) huddles on the front end.
 
-```css
-$meetup-font: 'aktiv-grotesk', sans-serif;
-$gray-border: rgb(232, 232, 232);
-$meetup-red: rgb(237, 28, 64);
-$meetup-red-light: rgb(235, 118, 138);
-$meetup-red-dark: rgb(207, 25, 56);
-$meetup-gray: rgb(250, 250, 250);
-$meetup-dark-gray: rgb(208, 208, 208);
 ```
+renderHuddles(){
+  const activeLi = this.state.active_li;
+  const huddles = this.props.huddles;
+  const upcomingHuddles = this.props.upcoming;
+  const pastHuddles = this.props.past;
+  let huddlesContainers;
+  if (activeLi === "Upcoming") {
+    huddlesContainers = upcomingHuddles.map((huddle, idx) => (
+      <div key={idx} className="group-huddle-container">
+        <h2 className="huddle-title">{huddle.title}</h2>
+        <div className="group-huddle-detail-container">
+          <div className="group-huddle-detail-left">
+            <h3 className="huddle-location">{huddle.location}</h3>
+            <h3 className="huddle-description">{huddle.description}</h3>
+          </div>
+          <div className="group-huddle-detail-right">
+            <h3 className="huddle-date">{huddle.day}</h3>
+            <h3 className="huddle-time">{huddle.time}</h3>
+            <h3 className="huddle-time">{`${this.getDaysTilHuddle(huddle.date)} days left`}</h3>
+            <Link to={`/groups/${this.props.group.id}/huddles/${huddle.id}`}>RSVP</Link>
+          </div>
+        </div>
+      </div>
+));
+```
+
+### Join a Group
+Joining a Group is a fundamental task of the application. Join Groups that interest you. Essentially, Huddle creates a join table relationship between Groups and the currently logged in user when joining a group. This allows you to RSVP to Huddles, and will allow you to communicate with Group members.
+
+![Huddle Join Example](https://github.com/naelkhann/Huddle/raw/master/public/huddle_join.gif "Huddle Join")
