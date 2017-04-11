@@ -73,9 +73,9 @@ Huddle's presentation layer incorporates Sass mixins for a uniform and consisten
 
 ![Huddle View Example](https://github.com/naelkhann/Huddle/raw/master/public/huddle_view.gif "Huddle View")
 
-Huddle takes advantage of Reacts component system to do lightning fast renders of information from the Redux store. Here's an example of a piece of the Group component, that handles the task of switching between Upcoming and Past (Archived) huddles on the front end.
+Huddle takes advantage of Reacts component system to do lightning fast renders of information from the Redux store. Here's an example of a piece of the Group component, that handles the task of switching between Upcoming and Past (Archived) huddles on the front end. The JSON data initialized through the API calls is organized to parse Upcoming and Past huddles from the current date. Then, React's component system creates an array of <div> HTML tags dynamically, using the information that passes down to the component `props` (properties). This generates the Huddles that belong to the Group.
 
-```
+```javascript
 renderHuddles(){
   const activeLi = this.state.active_li;
   const huddles = this.props.huddles;
@@ -103,10 +103,12 @@ renderHuddles(){
 ```
 
 ### Join a Group
-Joining a Group is a fundamental task of the application. Join Groups that interest you. Essentially, Huddle creates a join table relationship between Groups and the currently logged in user when joining a group. This allows you to RSVP to Huddles, and will allow you to communicate with Group members.
+Joining a Group is a fundamental task of the application. Join Groups that interest *you*. Essentially, a click on the 'Join Us' button sends a POST action to a custom API endpoint that creates a join table relationship between Groups and the currently logged in user when joining a group. This allows you to RSVP to Huddles, and will allow you to communicate with Group members.
 
 ![Huddle Join Example](https://github.com/naelkhann/Huddle/raw/master/public/huddle_join.gif "Huddle Join")
 
+#### There are several other features within Huddle. Check them out! Find a Huddle near you today.
+#### Made with <3 by Nael Khan
 
 ## Future Updates
 **Currently In Progress** : User Profiles
