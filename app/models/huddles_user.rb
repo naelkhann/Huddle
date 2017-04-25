@@ -11,6 +11,7 @@
 
 class HuddlesUser < ApplicationRecord
   validates :user, :huddle, presence: true
+  validates :huddle_id, uniqueness: {scope: :user}
 
   belongs_to :user
   belongs_to :huddle
