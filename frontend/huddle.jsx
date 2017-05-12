@@ -6,6 +6,7 @@ import * as CategoryAPIUtil from './util/categories_api_util';
 import * as GroupAPIUtil from './util/groups_api_util';
 import * as GroupsUsersAPIUtil from './util/groups_users_api_util';
 import * as HuddleAPIUtil from './util/huddles_api_util';
+import * as HuddlesUsersAPIUtil from './util/huddles_users_api_util';
 import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
+  window.createHuddlesUser = HuddlesUsersAPIUtil.createHuddlesUser;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
 });

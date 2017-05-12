@@ -8,10 +8,6 @@ const receiveHuddle = (huddle) => ({
   huddle
 });
 
-const removeHuddle = () => ({
-  type: REMOVE_HUDDLE,
-  huddle: {}
-});
 
 export const getHuddle = (id) => dispatch => (
   HuddlesAPIUtil.getHuddle(id).then(
@@ -20,10 +16,4 @@ export const getHuddle = (id) => dispatch => (
 
 export const createHuddle = (huddle) => dispatch => (
   HuddlesAPIUtil.createHuddle(huddle)
-);
-
-export const deleteHuddle = (id) => dispatch => (
-  HuddlesAPIUtil.deleteHuddle(id).then(
-    res => dispatch(removeHuddle())
-  )
 );

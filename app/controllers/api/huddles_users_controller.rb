@@ -9,12 +9,6 @@ class Api::HuddlesUsersController < ApplicationController
     end
   end
 
-  def destroy
-    @huddles_user = HuddlesUser.find(params[:id])
-    @huddles_user.destroy
-    render "api/huddles_users/show"
-  end
-
   def show
     @huddles_user = HuddlesUser.find(params[:id])
   end

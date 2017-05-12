@@ -1,22 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getHuddle, createHuddle, deleteHuddle } from '../../actions/huddles_actions';
+import { getHuddle, createHuddle } from '../../actions/huddles_actions';
+import { createHuddlesUser, deleteHuddlesUser } from '../../actions/huddles_users_actions';
 import { arrayOfMembers } from '../../reducers/selectors';
 import { Link } from 'react-router';
 
-const mapStateToProps = (state, ownProps) => ({
-  huddle: state.huddle,
-  members: arrayOfMembers(state)
-});
+const mapStateToProps = (state, ownProps) => {
+  let userId;
+  let isAttending;
+  if(state.session.currentUser){
+    userId = state.session.currentUser.id;
+    isAttending = state.huddle.is_user_attending;
+  } else {
+    userId = null;
+    isAttending = null;
+  }
+  return {
+    huddle: state.huddle,
+    members: arrayOfMembers(state),
+    userId,
+    isAttending
+  }
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getHuddle: (id) => dispatch(getHuddle(id)),
-  getGroup: (group) => dispatch(getGroup(group))
+  getGroup: (group) => dispatch(getGroup(group)),
+  createHuddlesUser: (huddles_user) => dispatch(createHuddlesUser(huddles_user)),
+  deleteHuddlesUser: (id) => dispatch(deleteHuddlesUser(id))
 });
 
 class Huddle extends React.Component {
   constructor(props){
     super(props);
+
+    this.joinHuddleToggle = this.joinHuddleToggle.bind(this);
   }
 
   componentDidMount(){
@@ -34,17 +52,45 @@ class Huddle extends React.Component {
     return members;
   }
 
+  joinHuddleToggle(e){
+    e.preventDefault();
+    if(this.props.userId){
+      if(this.props.isAttending){
+        this.props.deleteHuddlesUser(this.props.params.huddleId).then(() => this.props.getHuddle(this.props.params.huddleId));
+      } else if (this.props.isAttending === false) {
+        const rsvp = {
+          huddle_id: this.props.huddle.id,
+          user_id: this.props.userId
+        }
+        this.props.createHuddlesUser(rsvp).then(() => this.props.getHuddle(this.props.params.huddleId));
+      }
+    } else {
+      this.props.router.push('/login');
+    }
+  }
+
   renderRSVP(huddle){
     if(!huddle.past){
-      return (
-        <div>
-          <h2>Are you going?</h2>
-          <div className="huddle-members-btn-container">
-            <a className="huddle-members-btn" href="#">Yes</a>
-            <a className="huddle-members-btn" href="#">No</a>
+      if(this.props.isAttending === false || this.props.isAttending === null){
+        return (
+          <div>
+            <h2>Are you going?</h2>
+            <div className="huddle-members-btn-container">
+              <a className="huddle-members-btn" onClick={this.joinHuddleToggle}>Yes</a>
+              <a className="huddle-members-btn" onClick={this.joinHuddleToggle}>No</a>
+            </div>
           </div>
-        </div>
-      )
+        )
+      } else {
+        return (
+          <div>
+            <h4>You have RSVP'd.</h4>
+            <div className="huddle-members-btn-container">
+              <a className="huddle-members-btn" onClick={this.joinHuddleToggle}>Can't Go</a>
+            </div>
+          </div>
+        )
+      }
     }
   }
 

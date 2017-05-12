@@ -6,6 +6,12 @@ json.day @huddle.date.strftime('%a, %b %e')
 json.time @huddle.date.strftime('%I:%M %p')
 json.past DateTime.now > @huddle.date
 json.num_members @huddle.members.length
+
+member_ids = @huddle.members.map { |e| e.id }
+if current_user
+  json.is_user_attending member_ids.include? current_user.id
+end
+
 json.members do
   @huddle.members.each do |member|
     json.set! member.id do
