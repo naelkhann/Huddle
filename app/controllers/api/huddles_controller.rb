@@ -22,7 +22,7 @@ class Api::HuddlesController < ApplicationController
   def index
     search = params[:filter]
     if search
-      @huddles = Huddle.where("LOWER(name) LIKE ?", "#{search.downcase}%")
+      @huddles = Huddle.where("LOWER(title) LIKE ?", "#{search.downcase}%")
     else
       @huddles = Huddle.all
     end
