@@ -19,6 +19,15 @@ class Api::HuddlesController < ApplicationController
     render "api/huddles/show"
   end
 
+  def index
+    search = params[:filter]
+    if search
+      @huddles = Huddle.where("LOWER(name) LIKE ?", "#{search.downcase}%")
+    else
+      @huddles = Huddle.all
+    end
+  end
+
   def huddle_params
     params.require(:huddle).permit(:title, :group_id,
     :description, :date, :location, :moderator_id)

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
     resources :groups_users, only: [:create, :destroy]
     resources :huddles_users, only: [:create, :show]
-    resources :huddles, only: [:create, :show, :destroy] do
+    resources :huddles, only: [:create, :show, :destroy, :index] do
       resource :rsvps, only: [:destroy]
     end
     resources :users, only: [:create, :show]

@@ -10,14 +10,17 @@ class SearchBar extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      toggle: "groups"
     };
     this.updateSearch = this.updateSearch.bind(this);
   }
 
   updateSearch(e) {
     this.setState({name: e.target.value});
-    this.props.getGroups(e.target.value);
+    if(this.state.toggle === "groups"){
+      this.props.getGroups(e.target.value);
+    }
   }
 
   render(){
