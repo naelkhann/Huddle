@@ -4,6 +4,8 @@ export const arrayOfCategories = ({categories}) => values(categories);
 
 export const arrayOfHuddles = ({group}) => values(group.huddles);
 
+export const arrayOfFilteredHuddles = ({huddles}) => values(huddles).filter(h => h.past === false).sort((a, b) => b.date < a.date);
+
 export const arrayOfUpcomingHuddles = ({group}) => values(group.upcoming);
 
 export const arrayOfPastHuddles = ({group}) => values(group.past);

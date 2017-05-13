@@ -4,6 +4,7 @@ import CategoriesReducer from './categories_reducer';
 import CategoryReducer from './category_reducer';
 import GroupReducer from './group_reducer';
 import GroupsReducer from './groups_reducer';
+import HuddlesReducer from './huddles_reducer';
 import HuddleReducer from './huddle_reducer';
 import LoadingReducer from './loading_reducer';
 
@@ -13,6 +14,7 @@ const RootReducer = combineReducers({
   category: CategoryReducer,
   groups: GroupsReducer,
   group: GroupReducer,
+  huddles: HuddlesReducer,
   huddle: HuddleReducer,
   loading: LoadingReducer
 });

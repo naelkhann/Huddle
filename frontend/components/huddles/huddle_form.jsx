@@ -80,7 +80,6 @@ class HuddleForm extends React.Component {
       moderator_id: this.props.currentUser.id,
       founded_on: new Date()
     };
-    console.log(huddle);
     this.props.createHuddle(huddle).then(
       () => this.props.router.push(`/`)
     );

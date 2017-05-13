@@ -21,6 +21,56 @@
 
 }
 
+.dashboard-huddles-container {
+  max-width: 830px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  .group-huddle-container {
+    margin: 5px 0;
+    padding: 0 20px 20px 20px;
+    border: 1px solid $meetup-gray;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.21);
+    .group-huddle-detail-container {
+      display: flex;
+      justify-content: space-between;
+      .group-huddle-detail-left {
+        padding: 5px 10px 10px 0;
+        .huddle-location {
+          font-weight: normal;
+          font-size: 14px;
+          color: #bbb;
+
+        }
+        .huddle-description {
+          font-weight: normal;
+        }
+      }
+
+      .group-huddle-detail-right {
+        width: 161px;
+        padding: 5px 10px 10px 10px;
+        .huddle-date {
+          font-weight: normal;
+        }
+        .huddle-time {
+          font-weight: normal;
+          font-size: 14px;
+        }
+        a {
+          text-decoration: none;
+          color: $meetup-red;
+          display: block;
+          width: 50px;
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1125px){
   .dashboard-groups-container {
     @include groups-container-small;

@@ -1,3 +1,11 @@
+export const getHuddles = (filter) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/huddles`,
+    data: { filter }
+  });
+};
+
 export const getHuddle = (id) => {
   return $.ajax({
     method: 'GET',

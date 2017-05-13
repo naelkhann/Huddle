@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import SearchBar from '../search_bar';
 import { arrayOfGroups } from '../../reducers/selectors';
 import { getGroups } from '../../actions/groups_actions';
+import { getHuddles } from '../../actions/huddles_actions';
 import GroupItem from '../groups/group_item';
 
-const mapStateToProps = (state, ownProps) => ({
-  groups: arrayOfGroups(state)
-});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getGroups: (filter) => dispatch(getGroups(filter))
+  getGroups: (filter) => dispatch(getGroups(filter)),
+  getHuddles: (filter) => dispatch(getHuddles(filter))
 });
 
 class UserDashboard extends React.Component {
@@ -20,6 +19,7 @@ class UserDashboard extends React.Component {
 
   componentDidMount(){
     this.props.getGroups();
+    this.props.getHuddles();
   }
 
   renderGroups(){
@@ -37,15 +37,12 @@ class UserDashboard extends React.Component {
           <h3 className="dashboard-cover-title">Find a Group or Huddle!</h3>
         </div>
         <SearchBar />
-        <div className="dashboard-groups-container">
-          {this.renderGroups()}
-        </div>
       </div>
     );
   }
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(UserDashboard);
