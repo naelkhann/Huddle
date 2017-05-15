@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const HuddleItem = ({huddle}) => {
   return (
-    <div className="group-huddle-container">
+    <div className="group-huddle-container animated fadeInRight">
       <div className="group-huddle-detail-container">
         <div className="group-huddle-detail-left">
           <h2 className="huddle-title">{huddle.title}</h2>

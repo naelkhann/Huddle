@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const GroupItem = ({group}) => {
 
   return (
-  <div className="group-item-container">
+  <div className="group-item-container animated fadeInRight">
     <Link to={`/groups/${group.id}`}>
       <div className="group-item-image">
         <img className="group-item-img" src={group.image} />
