@@ -76,8 +76,7 @@ class Huddle extends React.Component {
           <div>
             <h2>Are you going?</h2>
             <div className="huddle-members-btn-container">
-              <a className="huddle-members-btn" onClick={this.joinHuddleToggle}>Yes</a>
-              <a className="huddle-members-btn" onClick={this.joinHuddleToggle}>No</a>
+              <a className="huddle-members-btn" onClick={this.joinHuddleToggle}>I'm In!</a>
             </div>
           </div>
         )

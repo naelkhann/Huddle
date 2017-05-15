@@ -24,3 +24,12 @@
   }
   color: white;
 }
+
+@mixin blue-button (){
+  background-color: $facebook-blue;
+  transition: filter 0.2s ease;
+  &:hover{
+    background-color: $facebook-blue-light;
+  }
+  color: white;
+}

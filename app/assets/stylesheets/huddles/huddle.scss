@@ -60,10 +60,11 @@
     }
     .huddle-members-btn-container {
       display: flex;
+      justify-content: center;
       padding: 5px 0 10px;
       a {
         @include meetup-button;
-        @include red-button;
+        @include blue-button;
         width: 100px;
         margin-left: 0;
       }
